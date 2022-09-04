@@ -64,7 +64,7 @@ tag_archive_path: "/tags/#"
 #   - vendor/gems/
 #   - vendor/ruby/
 
-skin: "/assets/css/skins/dark.css"
+# skin: "/assets/css/skins/dark.css"
 
 #giscus:
 #  repo:                "jeremyko/jeremyko.github.io"
