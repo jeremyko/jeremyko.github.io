@@ -2,18 +2,18 @@
 layout: post
 title:  "(python) docker container 에서 scipy, numpy 사용 시 thread 과다 생성 문제 (incorrect cpu count)"
 date:   2022-09-02 11:29:57 +0900
-categories: numpy python scipy
+categories: python
+tags: [numpy, scipy]
 ---
 
 개발 중인 python 프로젝트에서 scipy 패키지 interpolate 를 사용하는 코드가 있는데, docker 기반 클라우드 환경에서 실행하니 먹통이 되고 멈추는 현상이 발생 했다. 하지만, 이 코드를 내 랩탑 에서 돌려보면, 정상 동작한다.
 
 문제의 원인을 찾아보니, docker container 를 생성하면서 할당한 cpu 개수와 실제 머신의 전체 CPU 개수 불일치로 인한 문제였다. 이 현상에 대해 정리 해 본다.
 
-- **docker container 기반에서 [OpenBLAS](https://github.com/xianyi/OpenBLAS), [MLK](https://en.wikipedia.org/wiki/Math_Kernel_Library) 를 사용하는 numpy, scipy 등의 패키지 내부에서 과도한 thread 생성이 안되게 주의 해야 한다.**
+- docker container 기반에서 [OpenBLAS](https://github.com/xianyi/OpenBLAS), [MLK](https://en.wikipedia.org/wiki/Math_Kernel_Library) 를 사용하는 numpy, scipy 등의 패키지 내부에서 과도한 thread 생성이 안되게 주의 해야 한다.
 
-- **비록 명시적으로 thread 를 사용하지 않았어도, numpy, scipy 내부적으로는 multi thread 가 생성 된다는 것을 알아둘 필요가 있다.**
+- 비록 명시적으로 thread 를 사용하지 않았어도, numpy, scipy 내부적으로는 multi thread 가 생성 된다는 것을 알아둘 필요가 있다.
 
-- **코드가 동작하는 환경을 분석하고, 성능 문제가 있는 경우에만 시도한다**
 
 좀 더 자세히 알아보면, 
 
@@ -24,12 +24,9 @@ categories: numpy python scipy
 
 사용 중인 numpy, scipy 가 어떤 라이브러리를 사용 중인지는 다음 명령으로 확인 할 수 있다.
 
-```
-python -c "import numpy; numpy.show_config()"
+    python -c "import numpy; numpy.show_config()"
 
-python -c "import scipy; scipy.show_config()"
-
-```
+    python -c "import scipy; scipy.show_config()"
 
 
 pip 를 사용해서 numpy, scipy 등을 설치한 경우, windows 에서는 MLK, 리눅스(Ubuntu)에서는 OpenBLAS 를 사용하는 패키지가 설치된다.
@@ -106,8 +103,12 @@ import pandas as pd
 ### 참고
 
 [https://github.com/obspy/obspy/wiki/Notes-on-Parallel-Processing-with-Python-and-ObsPy](https://github.com/obspy/obspy/wiki/Notes-on-Parallel-Processing-with-Python-and-ObsPy) 
+
 [https://pipelines.lsst.io/v/foo/modules/lsst.pipe.base/command-line-task-parallel-howto.html](https://pipelines.lsst.io/v/foo/modules/lsst.pipe.base/command-line-task-parallel-howto.html) 
+
 [https://stackoverflow.com/questions/16047306/how-is-docker-different-from-a-virtual-machine?rq=1](https://stackoverflow.com/questions/16047306/how-is-docker-different-from-a-virtual-machine?rq=1) 
+
 [https://numpy.org/install](https://numpy.org/install)  
+
 [https://www.slideshare.net/JoongiKim/soscon-2017-backendai](https://www.slideshare.net/JoongiKim/soscon-2017-backendai) 37페이지 
 
