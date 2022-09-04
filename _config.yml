@@ -39,7 +39,7 @@ plugins:
 #paginate: 10  # amount of posts to show per page
 #paginate_path: /page:num/
 
-search_full_content: true
+#search_full_content: true
 
 category_archive_path: "/categories/#"
 tag_archive_path: "/tags/#"
@@ -66,15 +66,15 @@ tag_archive_path: "/tags/#"
 
 skin: "/assets/css/skins/dark.css"
 
-giscus:
-  repo:                "jeremyko/jeremyko.github.io"
-  repo-id:             "R_kgDOH7vuQA"
-  category:            "Announcements"
-  category-id:         "DIC_kwDOH7vuQM4CRN35"
-  mapping:             "pathname"
-  reaction-enabled:    "1"
-  theme:               "dark_dimmed"
-  crossorigin:         "anonymous"
+#giscus:
+#  repo:                "jeremyko/jeremyko.github.io"
+#  repo-id:             "R_kgDOH7vuQA"
+#  category:            "Announcements"
+#  category-id:         "DIC_kwDOH7vuQM4CRN35"
+#  mapping:             "pathname"
+#  reaction-enabled:    "1"
+#  theme:               "dark_dimmed"
+#  crossorigin:         "anonymous"
   
  
  
