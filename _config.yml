@@ -42,9 +42,8 @@ plugins:
 #search_full_content: true
 
 # ------------------------------------------
-# github page 에서 안됨 ??? TODO 
-#category_archive_path: "/categories/#"
-#tag_archive_path: "/tags/#"
+category_archive_path: "/categories/#"
+tag_archive_path: "/tags/#"
 # ------------------------------------------
 
 # Exclude from processing.
