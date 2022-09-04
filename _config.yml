@@ -41,8 +41,11 @@ plugins:
 
 #search_full_content: true
 
-category_archive_path: "/categories/#"
-tag_archive_path: "/tags/#"
+# ------------------------------------------
+# github page 에서 안됨 ??? TODO 
+#category_archive_path: "/categories/#"
+#tag_archive_path: "/tags/#"
+# ------------------------------------------
 
 # Exclude from processing.
 # The following items will not be processed, by default.
@@ -64,7 +67,7 @@ tag_archive_path: "/tags/#"
 #   - vendor/gems/
 #   - vendor/ruby/
 
-# skin: "/assets/css/skins/dark.css"
+skin: "/assets/css/skins/dark.css"
 
 #giscus:
 #  repo:                "jeremyko/jeremyko.github.io"
