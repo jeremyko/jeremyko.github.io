@@ -74,6 +74,38 @@ import pandas as pd
 ```
 
 참고로 OMP_NUM_THREADS 환경 변수는 OpenBLAS, MLK 모두에게 가능하다. 그러므로 OMP_NUM_THREADS 하나만 사용 해도 무방하다. 환경 변수의 우선 순위는 **OPENBLAS_NUM_THREADS > OMP_NUM_THREADS** 순서 이다.
+
+container 에 할당된 cpu 개수는 다음 코드처럼 파일을 읽어서 확인 할 수 있다.
+
+```python
+import os
+import sys
+import math
+import platform
+
+def get_cpu_count():
+    quota_path ="/sys/fs/cgroup/cpu/cpu.cfs_quota_us" # default -1
+    period_path="/sys/fs/cgroup/cpu/cpu.cfs_period_us"
+    if os.path.exists(quota_path) and os.path.exists(period_path):
+        # linux 
+        with open(quota_path) as fp:
+            cfs_quota_us = int(fp.read())
+        with open(period_path) as fp:
+            cfs_period_us = int(fp.read())
+
+        if cfs_quota_us < 0: # -1 : unlimited
+            return os.cpu_count()
+
+        cpus = math.floor(cfs_quota_us / cfs_period_us)
+        if cpus < 1: 
+            return 1  # 1 미만 이면 그냥 cpu 1 개로 리턴.
+        else:
+            return cpus
+    else:
+        return os.cpu_count()
+
+# os.environ['OMP_NUM_THREADS']= get_cpu_count()
+```
    
 ### 그런데 머신 전체 cpu 를 정말로 사용 가능 하다 해도...
 
@@ -101,6 +133,13 @@ import pandas as pd
 
 
 ### 참고
+[cgroupfs 참고](https://tech.kakao.com/2020/06/29/cgroup-driver/)
+
+[docker runtime option](https://docs.docker.com/config/containers/resource_constraints/#configure-the-default-cfs-scheduler)
+
+[Completely Fair Scheduler Bandwidth Control](https://www.kernel.org/doc/Documentation/scheduler/sched-bwc.txt)
+
+[cgroups(7) — Linux manual page])https://man7.org/linux/man-pages/man7/cgroups.7.html)
 
 [https://github.com/obspy/obspy/wiki/Notes-on-Parallel-Processing-with-Python-and-ObsPy](https://github.com/obspy/obspy/wiki/Notes-on-Parallel-Processing-with-Python-and-ObsPy) 
 
