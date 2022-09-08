@@ -104,7 +104,7 @@ def get_cpu_count():
     else:
         return os.cpu_count()
 
-# os.environ['OMP_NUM_THREADS']= get_cpu_count()
+# os.environ['OMP_NUM_THREADS']= str(get_cpu_count())
 ```
    
 ### 그런데 머신 전체 cpu 를 정말로 사용 가능 하다 해도...
