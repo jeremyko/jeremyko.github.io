@@ -1,0 +1,11 @@
+---
+layout: post
+title: gRpc 설치
+date: '2021-04-20T14:58:00.003+09:00'
+author: jeremyko
+tags:
+modified_time: '2021-04-20T14:58:17.571+09:00'
+blogger_id: tag:blogger.com,1999:blog-7360229670252766698.post-9218687615484903049
+---
+
+<p>&nbsp;</p><p>golang 설치<br /></p><p>protoc&nbsp; 설치 :&nbsp; yum install -y protobuf-compiler</p><p>go plugin : <br /></p><pre style="-moz-tab-size: 4; -o-tab-size: 4; background-color: #f0f3f3; tab-size: 4;"><code class="language-sh" data-lang="sh"><span style="color: #336666;">export</span> <span style="color: #003333;">GO111MODULE</span><span style="color: #555555;">=</span>on</code></pre><pre style="-moz-tab-size: 4; -o-tab-size: 4; background-color: #f0f3f3; tab-size: 4;"><code class="language-sh" data-lang="sh">go get google.golang.org/protobuf/cmd/protoc-gen-go <span style="color: #cc3300; font-weight: 700;">\<br /></span><span style="color: #cc3300; font-weight: 700;"></span>         google.golang.org/grpc/cmd/protoc-gen-go-grpc</code></pre><p> </p><p><br /> </p><p>예제파일 :<br /> </p><pre style="-moz-tab-size: 4; -o-tab-size: 4; background-color: #f0f3f3; tab-size: 4;"><code class="language-sh" data-lang="sh">git clone -b v1.35.0 https://github.com/grpc/grpc-go</code></pre> <br /> <br />

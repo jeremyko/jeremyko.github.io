@@ -1,0 +1,12 @@
+---
+layout: post
+title: 'TODO ranged for 에서 데이터 변경 안되는 경우 '
+date: '2018-12-11T21:15:00.000+09:00'
+author: jeremyko
+tags:
+modified_time: '2018-12-11T21:15:55.476+09:00'
+blogger_id: tag:blogger.com,1999:blog-7360229670252766698.post-8586679741358811338
+blogger_orig_url: https://jeremyko.blogspot.com/2018/12/todo-ranged-for.html
+---
+
+//for(auto &amp; it : dataSource_) // ???<br />for(auto it= dataSource_.begin(); it != dataSource_.end(); ++it)<br />{<br />&nbsp;&nbsp;&nbsp; if(strcmp(it-&gt;alias_.c_str(),_name)==0)<br />&nbsp;&nbsp;&nbsp; {<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; it-&gt;value_ = _value ;<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; printf( "(%s:%s:%d) OK name=%s, value=%s \n" ,&nbsp; __FILE__ , __func__ , __LINE__ , _name , _value); ; //kojh debug<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; return true;<br />&nbsp;&nbsp;&nbsp; }<br />}<br />printf( "(%s:%s:%d) Failed name=%s, value=%s \n" ,&nbsp; __FILE__ , __func__ , __LINE__ , _name , _value); ; //kojh debug<br />return false;<br /><br />

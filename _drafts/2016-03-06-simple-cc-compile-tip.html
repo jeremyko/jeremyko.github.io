@@ -1,0 +1,14 @@
+---
+layout: post
+title: simple c/c++ compile tip
+date: '2016-03-06T19:39:00.001+09:00'
+author: jeremyko
+tags:
+- c++
+- make
+modified_time: '2016-05-14T22:36:40.484+09:00'
+blogger_id: tag:blogger.com,1999:blog-7360229670252766698.post-7174884715500111816
+blogger_orig_url: https://jeremyko.blogspot.com/2016/03/simple-cc-compile-tip.html
+---
+
+<span style="color: #444444;">간단한 c/c++ 소스 하나를 컴파일하는 경우, makefile 을 생성하는건 귀찮아서</span><br /><span style="color: blue;">gcc -o test test.c</span><br /><span style="color: blue;">g++ -o test test.cpp </span><br /><span style="color: #444444;">보통 이런식으로 하지만, make 를 사용해서 다음처럼 간단히 할수도 있다.</span><br /><br /><span style="color: blue;">make test</span><br /><br /><span style="color: #444444;">수행하면 gcc, g++ 을 자동으로 호출해준다.</span><br /><span style="color: #444444;">만약 컴파일시 std=c++11 이나 -pthread 같은 옵션이 필요하다면</span><br /><span style="color: #444444;">다음처럼 호출하면 된다.</span><br /><br /><span style="color: blue;">make CXXFLAG="std=c++11 -pthread" test</span><br /><span style="color: blue;"><span style="color: #666666;">(이건 뭐 이럴필요까지 없을듯..)</span> </span><br /><br /><br /><br /><br />

@@ -1,0 +1,14 @@
+---
+layout: post
+title: WSL 1, 2  has no numa support
+date: '2020-06-11T11:53:00.007+09:00'
+author: jeremyko
+tags:
+- numa
+- wsl
+modified_time: '2021-04-03T15:56:03.275+09:00'
+blogger_id: tag:blogger.com,1999:blog-7360229670252766698.post-3483691293311629420
+blogger_orig_url: https://jeremyko.blogspot.com/2020/06/wsl-1-virtualbox-and-numa.html
+---
+
+<span><a name='more'></a></span><div><br /></div><div></div>When I run a linux program that uses c++ numa lib , I get the following error and core dump.<br /><div>  &nbsp;&nbsp;&nbsp;&nbsp; <span style="color: #cc0000;">"request to allocate mask for invalid number: Invalid argument"</span><br /><br />But, It works normally on linux installed in virtualbox. 프로그램이 wsl 에서 동작하지 않는 경우를 처음 겪었음. <br /><br /></div><div><br /></div><div><b>virtualbox</b></div><div><br /></div><div>$ numactl -s<br />policy: default<br />preferred node: current<br />physcpubind: 0 1 2 3<br />cpubind: 0<br />nodebind: 0<br />membind: 0</div><div><br /></div><div><b>wsl ubuntu</b></div><div><br /></div><div>$ numactl -s<br />physcpubind: 0 1 2 3 4 5 6 7<br /><span style="color: #b51200;">No NUMA support available on this system.</span></div><div><br />2020-07-22 update : wsl 2 에서도 마찬가지. custom kernel build 가 필요하다고&nbsp;&nbsp; :-(</div>

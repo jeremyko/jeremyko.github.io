@@ -1,0 +1,14 @@
+---
+layout: post
+title: GnuCOBOL install 시 /usr/local/include 경로를 참조하게 하는법
+date: '2017-02-23T13:22:00.004+09:00'
+author: jeremyko
+tags:
+- cobol
+- autoconf
+modified_time: '2017-02-23T13:22:58.452+09:00'
+blogger_id: tag:blogger.com,1999:blog-7360229670252766698.post-3225651475045624814
+blogger_orig_url: https://jeremyko.blogspot.com/2017/02/gnucobol-install-usrlocalinclude.html
+---
+
+./configure CPPFLAGS=-I/usr/local/include LDFLAGS=-L/usr/local/lib --without-db

@@ -1,0 +1,15 @@
+---
+layout: post
+title: NERDTree 4.2.0 디렉토리가 안열리는 경우
+date: '2013-01-04T12:15:00.001+09:00'
+author: jeremyko
+tags:
+- vim
+- NERDTree
+modified_time: '2018-10-04T23:20:14.599+09:00'
+thumbnail: https://3.bp.blogspot.com/-_7-kWsxd92Q/UOZI01zxBLI/AAAAAAAAC2E/lVwoThEmdHM/s72-c/4.jpg
+blogger_id: tag:blogger.com,1999:blog-7360229670252766698.post-252821620428247664
+blogger_orig_url: https://jeremyko.blogspot.com/2013/01/nerdtree-420.html
+---
+
+<a href="https://github.com/scrooloose/nerdtree" target="_blank">NERDTree </a>실행후 디렉토리 명 앞에 이상한 문자가 붙어서, 정상적으로 파일을 열수 없는 경우<br /><br /><div class="separator" style="clear: both; text-align: center;"><a href="http://3.bp.blogspot.com/-_7-kWsxd92Q/UOZI01zxBLI/AAAAAAAAC2E/lVwoThEmdHM/s1600/4.jpg" imageanchor="1" style="margin-left: 1em; margin-right: 1em;"><img border="0" src="https://3.bp.blogspot.com/-_7-kWsxd92Q/UOZI01zxBLI/AAAAAAAAC2E/lVwoThEmdHM/s1600/4.jpg" /></a></div><br /><br />다음처럼 .vimrc 에 설정한다.<br /><br /><br /><pre style="background-color: #eeeeee; border-left-color: rgb(204, 204, 204); border-left-style: solid; border-width: 0px 0px 0px 5px; font-family: Consolas, Menlo, Monaco, 'Lucida Console', 'Liberation Mono', 'DejaVu Sans Mono', 'Bitstream Vera Sans Mono', 'Courier New', monospace, serif; font-size: 14px; line-height: 18px; margin-bottom: 10px; max-height: 600px; overflow: auto; padding: 5px 5px 5px 10px; vertical-align: baseline; width: auto;"><code style="border: 0px; font-family: Consolas, Menlo, Monaco, 'Lucida Console', 'Liberation Mono', 'DejaVu Sans Mono', 'Bitstream Vera Sans Mono', 'Courier New', monospace, serif; margin: 0px; padding: 0px; vertical-align: baseline;">let g:NERDTreeDirArrows=0</code></pre><br />원인은 NERDTree가 출력하는 화살표 문자가 vim에서 지원되지 않는 경우 라고 한다.<br /><br /><div class="separator" style="clear: both; text-align: center;"></div><a href="https://github.com/scrooloose/nerdtree/issues/108" target="_blank">https://github.com/scrooloose/nerdtree/issues/108</a> 참고<br /><br />그리고 nerdtree는 utf-8에서 제대로 동작한다. 이거 때문에 본인도 삽질한 기록이 있으니<br /><a href="http://jeremyko.blogspot.com/2018/09/nerdtree-euc-kr.html" target="_blank">http://jeremyko.blogspot.com/2018/09/nerdtree-euc-kr.html</a><br />를 참고하시길. nerdtree를 euc-kr 로 설정된 서버에서 사용하는 방법에 대한 정리임. 달리 말하면 vim을 개별 사용자별로 설정해서 사용하기 위한 방법이라고 할수도 있음. 

@@ -1,0 +1,14 @@
+---
+layout: post
+title: c++ trivial 기본 생성자(작성자료)
+date: '2017-02-13T23:49:00.000+09:00'
+author: jeremyko
+tags:
+- c++
+- trivial
+modified_time: '2017-02-13T23:49:14.307+09:00'
+blogger_id: tag:blogger.com,1999:blog-7360229670252766698.post-7878223671121460635
+blogger_orig_url: https://jeremyko.blogspot.com/2017/02/c-trivial.html
+---
+
+trivial : 사전적인 의미로 보면 중요하지않은, 사소한... 이런 의미가 있는데 c++ 에서 의미는 신경 쓸 필요없다.. 중요하지 않다 .. 이런 의미다.<br /><br /><br />예를 들면 어떤 객체가 있는데, 생성자, 소멸자를 사용자가 정의하지않아서 컴파일러가 암묵적으로 기본 생성자를 생성한 경우, 다음 조건을 만족하면  trivial 생성자라고 한다<br /><ul><li>가상함수나 베이스 가상함수가 없음</li><li>비 정적 데이터 멤버가 brace-or-equal-initializer 가지면 안됨</li><li>부모 클래스의 기본 생성자도 trivial 해야 함.</li><li>non static 멤버 중에 class 타잎인 것의 모든 기본 생성자도 trivial 해야함.</li></ul><br />반대로 말하면 자신이 명시적으로 생성자를 정의한다면(비록 아무일도 안하는 기본 생성자 일지라도) 그 생성자는 non-trivial 하다.&nbsp; <br /><br /><br />어떤 객체가 trivial 한지 체크를 해주는&nbsp;&nbsp; c++11 유틸리티...<br />http://en.cppreference.com/w/cpp/types/is_trivial&nbsp; <br /><br /><br /><br />이걸 어디에 사용하면 ?<br /><br />객체가 trivial(POD) 객체라면 memcpy 가능, union 에서도&nbsp; struct 처럼 사용가능<br /><br /><br />http://altdevblog.com/2011/05/13/trivial-constructors-and-destructors-in-cpp/<br />- do nothing constructor 를 정의하면 객체생성시에 불필요하게 호출된다.. 1000 times...<br />소멸자도 마찬가지... <br />- POD 가 되면 union 안에 type을 포함할수있다 --&gt; 메모리절약 <br /><br /><br /><br /><br />참고<br />http://en.cppreference.com/w/cpp/types<br />http://stackoverflow.com/questions/20828907/the-new-keyword-default-in-c11<br /><br />http://stackoverflow.com/questions/442784/destructors-triviality-vs-implicit-definition<br /><blockquote class="tr_bq">Trivial destructors exist because C programmers put structs in unions.  This code should remian legal in C++, so the notion of a trivial  destructor was invented for C++. All C structs have trivial destructors,  when compiled as C++.</blockquote><br />http://narss.tistory.com/entry/trivial<br />https://en.wikipedia.org/wiki/C%2B%2B11#Modification_to_the_definition_of_plain_old_data <br />아무것도 하지않는 생성자, 소멸자를 명시적으로 정의할 필요??--&gt; 암묵적인 경우에는호출이 안되겠지?? 안됨.<br />http://stackoverflow.com/questions/5097545/are-empty-constructors-always-called-in-c<br /><br />* Providing&nbsp;<i>brace-or-equal-initializer</i>s makes a class nontrivial <br />http://arne-mertz.de/2015/08/new-c-features-default-initializers-for-member-variables/<br /><br />

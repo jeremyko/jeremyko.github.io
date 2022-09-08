@@ -1,0 +1,12 @@
+---
+layout: post
+title: 'multiple inheritance 과 template method pattern '
+date: '2020-05-03T16:02:00.001+09:00'
+author: jeremyko
+tags:
+modified_time: '2020-05-03T16:02:42.900+09:00'
+blogger_id: tag:blogger.com,1999:blog-7360229670252766698.post-8347734892146985915
+blogger_orig_url: https://jeremyko.blogspot.com/2020/05/multiple-inheritance-template-method.html
+---
+
+multiple inheritance 과 template method pattern&nbsp; 이 결합된 경우, 이것을 나쁜 디자인이라고 바로 할수 있을까?? 나쁘다면 대안은 무엇일까?<br /><br />composition&nbsp; 은 어떤식으로 해야 virtual 함수 다형성을 구현할수있을지??/..<br /><br />class mgr : public tcp_inf, public ipc_inf<br />{<br />};<br /><br />class master_mgr : public tcp_inf, public ipc_inf<br />{<br />};<br /><br />class agt : public tcp_inf, public ipc_inf<br />{<br />};<br /><br />
