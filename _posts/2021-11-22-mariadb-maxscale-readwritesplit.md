@@ -23,7 +23,7 @@ mariadb [MaxScale](https://mariadb.com/kb/en/mariadb-maxscale-6-about-mariadb-ma
 
 그래서 문서를 통해 찾은 해결책은 다음 2 가지가 있다.
 
--   mariadb 와 maxscale [설정을 변경하거나](https://mariadb.com/docs/solutions/maxscale/routers/readwritesplit/ensure-causal-consistency-maxscale-read-write-split-router/) 아니면
+-   mariadb 와 maxscale [설정을 변경하거나](https://mariadb.com/docs/architecture/components/maxscale/routers/readwritesplit/ensure-causal-consistency-maxscale-read-write-split-router/) 아니면
 -   사용자의 프로그램에서 동일한 트랜잭션으로 묶는다. [문서를 보면](https://mariadb.com/kb/en/mariadb-maxscale-6-readwritesplit/#limitations), 동일한 트랜잭션 안에서는 select 쿼리가 무조건 master로 라우팅되므로 일관성 문제가 해결 된다.
 
 <h3> <span style="color:orange">참고</span> </h3>
