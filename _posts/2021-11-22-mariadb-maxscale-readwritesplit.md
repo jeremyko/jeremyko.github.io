@@ -32,4 +32,4 @@ mariadb [MaxScale](https://mariadb.com/kb/en/mariadb-maxscale-6-about-mariadb-ma
 
 [https://mariadb.com/kb/en/mariadb-maxscale-6-readwritesplit/#limitations](https://mariadb.com/kb/en/mariadb-maxscale-6-readwritesplit/#limitations)
 
-[https://mariadb.com/docs/solutions/maxscale/routers/readwritesplit/ensure-causal-consistency-maxscale-read-write-split-router/](https://mariadb.com/docs/solutions/maxscale/routers/readwritesplit/ensure-causal-consistency-maxscale-read-write-split-router/)
+[https://mariadb.com/docs/architecture/components/maxscale/routers/readwritesplit/ensure-causal-consistency-maxscale-read-write-split-router/](https://mariadb.com/docs/architecture/components/maxscale/routers/readwritesplit/ensure-causal-consistency-maxscale-read-write-split-router/)
