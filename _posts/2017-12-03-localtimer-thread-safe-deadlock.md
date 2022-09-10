@@ -6,7 +6,7 @@ tags:
     - fork
     - localtime_r
     - linux
-    - c
+    - c++
 modified_time: '2022-03-26T20:57:36.541+09:00'
 blogger_id: tag:blogger.com,1999:blog-7360229670252766698.post-9051402071414545648
 blogger_orig_url: https://jeremyko.blogspot.com/2017/12/localtimer-thread-safe-deadlock.html

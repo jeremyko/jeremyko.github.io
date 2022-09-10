@@ -3,7 +3,7 @@ layout: post
 title: libcurl POST 한글 encoding
 date: '2018-01-10T22:53:00.004+09:00'
 tags:
-    - cpp
+    - c++
     - curl
     - libcurl
 modified_time: '2022-03-26T20:57:19.558+09:00'

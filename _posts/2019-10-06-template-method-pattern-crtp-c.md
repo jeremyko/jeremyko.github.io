@@ -3,7 +3,7 @@ layout: post
 title: template method pattern 에  CRTP 사용하기 (c++)
 date: '2019-10-06T16:52:00.001+09:00'
 tags:
-    - cpp
+    - c++
     - template method pattern
     - CRTP
 modified_time: '2022-03-26T20:56:32.844+09:00'

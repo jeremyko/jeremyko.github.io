@@ -3,7 +3,7 @@ layout: post
 title: c++ 코드에서 언더스코어 ('_')  사용시 주의
 date: '2019-11-10T23:02:00.003+09:00'
 tags:
-    - cpp
+    - c++
     - 니맘대로하면안된다
 modified_time: '2022-03-26T20:56:17.877+09:00'
 blogger_id: tag:blogger.com,1999:blog-7360229670252766698.post-566961743518724250

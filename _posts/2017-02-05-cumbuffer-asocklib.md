@@ -3,7 +3,7 @@ layout: post
 title: 'Cumbuffer 를 이용한 예제 : ASockLib'
 date: '2017-02-05T18:36:00.003+09:00'
 tags:
-    - cpp
+    - c++
     - epoll
     - CumBuffer
     - kqueue

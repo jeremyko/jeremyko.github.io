@@ -3,8 +3,7 @@ layout: post
 title: c++ thread pool
 date: '2017-10-08T13:35:00.007+09:00'
 tags:
-    - cpp
-    - c++11
+    - c++
 modified_time: '2022-03-26T20:57:51.717+09:00'
 blogger_id: tag:blogger.com,1999:blog-7360229670252766698.post-96266151791272400
 blogger_orig_url: https://jeremyko.blogspot.com/2017/10/c-thread-pool.html

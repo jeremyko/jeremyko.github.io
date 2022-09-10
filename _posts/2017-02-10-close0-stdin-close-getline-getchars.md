@@ -3,6 +3,7 @@ layout: post
 title: 'close(0) 로 인한 stdin close : getline, getchars 동작 이상'
 date: '2017-02-10T00:43:00.001+09:00'
 tags:
+    - c++
     - 삽질기록
 modified_time: '2017-02-13T21:12:00.992+09:00'
 blogger_id: tag:blogger.com,1999:blog-7360229670252766698.post-3988169717043903330

@@ -3,7 +3,7 @@ layout: post
 title: ASockLib  windows 를 지원
 date: '2019-12-27T22:31:00.002+09:00'
 tags:
-    - cpp
+    - c++
     - ASock
 modified_time: '2022-03-26T20:56:03.761+09:00'
 blogger_id: tag:blogger.com,1999:blog-7360229670252766698.post-62587157318904030
