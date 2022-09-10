@@ -103,17 +103,12 @@ def get_cpu_count():
 # os.environ['OMP_NUM_THREADS']= str(get_cpu_count())
 ```
 
-<!-- ### 그런데 머신 전체 cpu 를 정말로 사용 가능 하다 해도... -->
-<h3> <span style="color:{{site.span_h3_color}}"> 그런데 머신 전체 cpu 를 정말로 사용 가능 하다 해도... </span> </h3>
-
-그런데 또 한편으로, 머신 의 모든 cpu core 48개를 정말 다 사용 할 수 있다고 해서 그만큼 thread 가 수십 개 생기는 것은 성능에 어떤 이점이 있을까 고려해봐야 할 거 같다. thread 가 많다고 비례해서 성능이 좋아지지 않으므로. 물론 이 부분은 numpy, scipy 등에서 내부적으로 아마도.. 뭔가 처리가 있을 거 같기도 하지만.. 직접 확인은 못해본 상태이다.
-
 <!-- ### 작성한 코드가 이미 thread 를 사용 하는지 여부 -->
-<h3> <span style="color:{{site.span_h3_color}}"> 작성한 코드가 이미 thread 를 사용 하는지 여부 </span> </h3>
+<h3> <span style="color:{{site.span_h3_color}}"> 작성한 코드가 이미 멀티 thread 로 동작되는지 여부 </span> </h3>
 
-한 가지 더 고려해 봐야 할 것이 있는데, 작성한 코드가 이미 multi thread를 사용하고 있는 경우이다. 이 경우엔 OpenBLAS, MLK 이 만드는 thread와 충돌이 발생되어 deadlocks 등의 문제가 발생될 수 있다.
+한 가지 더 고려해 봐야 할 것이 있는데, 작성한 코드가 이미 multi thread를 사용하고 있는 경우이다. 이 경우엔 OpenBLAS, MLK 이 만드는 thread와 충돌이 발생되어 deadlocks 등의 문제가 발생될 수 있다고 한다 (왜 이런식으로 동작되는지는 파악을 못했다. 다만 문제가 발생한다는 글들을 많이 검색할수 있었으므로 이에 따르기로 한다).
 
-이를 방지하기 위해서는 OpenBLAS, MLK 의 thread 개수를 1개로 , 오히려 낮추는 것이 좋다.
+이를 방지하기 위해서는 OpenBLAS, MLK 의 thread 개수를 1개로, 오히려 낮춰야 한다.
 
     OpenBLAS 인 경우
     export OPENBLAS_NUM_THREADS=1
