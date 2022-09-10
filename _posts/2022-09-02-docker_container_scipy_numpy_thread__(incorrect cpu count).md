@@ -33,7 +33,7 @@ pip 를 사용해서 numpy, scipy 등을 설치한 경우, windows 에서는 MLK
 
 여기서 문제가 발생 하는데, docker container 생성 시 할당한 cpu 개수를 OpenBLAS, MLK 에서 정확히 모른다는 것이다 (incorrect cpu count).
 
-docker container 는 가상 머신 이 아니기 때문에, docker container 에서 /proc/cpuinfo 를 열어보면, 실제 머신 이 가진 모든 cpu 가 출력 된다.
+docker container 는 가상 머신 이 아니기 때문에, docker container 에서 `/proc/cpuinfo` 를 열어보면, 실제 머신 이 가진 모든 cpu 가 출력 된다.
 
 즉 OpenBLAS, MLK 입장에서는 머신 의 모든 cpu 를 사용 할 수 있다 라고 잘못 판단을 하게 되고, 결과적으로 cpu 개수 만큼 worker thread 들을 생성하게 되는 것이다.
 
@@ -69,7 +69,7 @@ import scipy
 import pandas as pd
 ```
 
-참고로 OMP_NUM_THREADS 환경 변수는 OpenBLAS, MLK 모두에게 가능하다. 그러므로 OMP_NUM_THREADS 하나만 사용 해도 무방하다. 환경 변수의 우선 순위는 **OPENBLAS_NUM_THREADS > OMP_NUM_THREADS** 순서 이다.
+참고로 OMP_NUM_THREADS 환경 변수는 OpenBLAS, MLK 모두에게 가능하다. 그러므로 `OMP_NUM_THREADS` 하나만 사용 해도 무방하다. 환경 변수의 우선 순위는 **OPENBLAS_NUM_THREADS > OMP_NUM_THREADS** 순서 이다.
 
 container 에 할당된 cpu 개수는 다음 코드처럼 파일을 읽어서 확인 할 수 있다.
 
@@ -124,7 +124,7 @@ def get_cpu_count():
 개발자라면 당연하게 여기겠지만, 자신의 코드가 동작하는 환경을 먼저 분석하고, 문제점이 이에 해당되는 경우에만 thread 개수 설정을 해야 한다. 임의로 개수 조정하는 것은 오히려 성능을 더 저하 시키는 요인이 될 수도 있다는 것을 유념해 둘 필요가 있다.
 
 <!-- ### 참고 -->
-<h3> <span style="color:{{site.span_h4_color}}"> 참고 </span> </h3>
+<h3> <span style="color:{{site.span_h3_color}}"> 참고 </span> </h3>
 
 [cgroupfs 참고](https://tech.kakao.com/2020/06/29/cgroup-driver/)
 

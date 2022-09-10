@@ -11,7 +11,9 @@ blogger_id: tag:blogger.com,1999:blog-7360229670252766698.post-83322057755589869
 blogger_orig_url: https://jeremyko.blogspot.com/2021/04/flutter-using-mixed-null-safety-for.html
 ---
 
-### null safety 가 없는 기존 package 들을 최신 flutter, dart 개발 환경에서 사용하기.
+<h3> <span style="color:{{site.span_h3_color}}"> 
+null safety 가 없는 기존 package 들을 최신 flutter, dart 개발 환경에서 사용하기.
+</span> </h3>
 
 flutter 프로젝트 내에서 dart 버전을 소스파일 단위로 다르게 지정하여 오래된 package 들도 null safety 에러가 안나게 개발할수 있다.
 

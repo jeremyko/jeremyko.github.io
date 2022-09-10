@@ -25,7 +25,7 @@ When sending a byte message composed of a fixed-length header and variable-lengt
 udp and domain socket are also supported, but this is not much different from using the existing net package as it is, so there is no special point.
 
 <h3> <span style="color:{{site.span_h3_color}}"> 
-golang 으로 만든 간단하면서도 꽤 실용적인 socket 프레임워크.
+golang 으로 만든 간단하면서도 꽤^^ 실용적인 socket 프레임워크.
 </span> </h3>
 
 검색하면 많이 나오는 단순한 socket echo 예제 대신, 조각으로 쪼개지거나, 한번에 다 전송될수 있는 tcp 의 데이터 버퍼링 처리를 제대로 처리 할 수 있게 끔 구현해 봤다. 그리고 재활용성을 높이기 위해 프레임워크 처럼 사용할수 있게 구현 해 봤다. 몇가지 특징을 나열하면,

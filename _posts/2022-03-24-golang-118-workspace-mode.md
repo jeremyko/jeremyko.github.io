@@ -18,16 +18,16 @@ workspace 는 개발자가 동시에 여러 모듈들을 생성/수정 하면서
 
 개발 시 분명히 마주치게 될 이런 문제를 1.18 버전 이전에는
 
-A모듈의 go.mod 파일에서 replace 지시자를 사용해서, B모듈의 경로를, 지금 수정하는 로컬 위치로 변경 해줘야만 했다.
+A모듈의 go.mod 파일에서 `replace` 지시자를 사용해서, B모듈의 경로를, 지금 수정하는 로컬 위치로 변경 해줘야만 했다.
 (이전글 참조 : golang module 작성, 타 모듈에서 로컬 테스트 및 배포 개념 정리) .
 
-로컬 경로는 개발자마다 전부 다를 것이므로, 소스 관리 차원에서도 함부로 replace 지시자 가 들어간 go.mod 파일을 소스 repo 에 commit,push 할 수 없었다. 한마디로 매우 성가시고 불편했다.
+로컬 경로는 개발자마다 전부 다를 것이므로, 소스 관리 차원에서도 함부로 `replace` 지시자 가 들어간 go.mod 파일을 소스 repo 에 commit,push 할 수 없었다. 한마디로 매우 성가시고 불편했다.
 
 만약 replace 사용 없이 하려면 각각의 모듈 별로 개별 test 코드를 만들어서 독립적으로 완벽히 테스트 하면서 개발 후, 동시에 repo에 발행한다며, 아마도 어쩌면? 가능 했을지도 모른다.
 
 하지만 개발자는 신이 아니기에, 이런 식으로 개발 할 수는 없을 듯 하다. A 를 수정하다 보면 B 도 수정 필요하고 또 그 반대의 경우도 수시로 발생 될 수 있기 때문이다.
 
-그런데 이제 workspace 를 사용하면 훨씬 편한 개발이 가능해졌다. go.work 파일이 존재하면 workspace mode로 동작하게 된다.
+그런데 이제 workspace 를 사용하면 훨씬 편한 개발이 가능해졌다. `go.work` 파일이 존재하면 workspace mode로 동작하게 된다.
 
 그럼 이전 글에서 설명된 예제를 workspace 를 사용하는 것으로 수정을 해본다.
 
@@ -58,7 +58,7 @@ A모듈의 go.mod 파일에서 replace 지시자를 사용해서, B모듈의 경
     cd my_mod
 
 <!-- #### 신규 작성할 모듈 폴더에서 go mod init 을 수행한다. -->
-<h4> <span style="color:{{site.span_h4_color}}">신규 작성할 모듈 폴더에서 go mod init 을 수행한다</span> </h4>
+<h4> <span style="color:{{site.span_h4_color}}">신규 작성할 모듈 폴더에서 `go mod init` 을 수행한다</span> </h4>
 
     cd ~/mydev/workspace_test/my_mod
 

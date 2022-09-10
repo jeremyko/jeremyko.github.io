@@ -169,7 +169,10 @@ func main() {
 gRPC-Gateway 기능 추가
 </span> </h3>
 
-자..여기까지가 Go gRPC server 를 작업한것이고, 이제 추가로 gRPC-Gateway 를 위한 처리가 필요하다.  
+<span style="color:{{site.span_emphasis_color}}">
+자..여기까지가 Go gRPC server 를 작업한것이고 ;-), 이제 추가로 gRPC-Gateway 를 위한 처리가 필요하다.  
+</span>
+
 다시 proto 파일에 다음처럼 변경을 해줘야 한다.
 
 import "google/api/annotations.proto"; 를 추가한다
