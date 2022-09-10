@@ -2,7 +2,6 @@
 layout: post
 title: golang module 작성, 타 모듈에서 로컬 테스트 및 배포 개념 정리
 date: '2021-03-19T02:06:00.025+09:00'
-author: jeremyko
 tags:
     - golang
 modified_time: '2022-03-24T15:03:14.060+09:00'
@@ -15,7 +14,7 @@ golang 모듈을 만들고 타 모듈에서 사용하는 것을 한번 정리해
 내가 만들려고 하는 모듈이 <span style="color:yellow">github.com/jeremyko/my_mod </span>이며,  
 모듈 폴더는 <span style="color:yellow">~/mydev/my_mod</span> 라고 가정한다.
 
-<h3> <span style="color:orange"> 
+<h3> <span style="color:{{site.span_h3_color}}"> 
 작업중인 모듈 폴더에서 go mod init 을 수행한다.
 </span> </h3>
 
@@ -34,7 +33,7 @@ golang 모듈을 만들고 타 모듈에서 사용하는 것을 한번 정리해
 다른 개발자의 모듈을 import 하는 경우에는  
 그 의존성 정보들도 추가될것이다.
 
-<h3> <span style="color:orange"> 
+<h3> <span style="color:{{site.span_h3_color}}"> 
 모듈 코드를 작성한다
 </span> </h3>
 
@@ -48,7 +47,7 @@ func MyModTest() string {
 }
 ```
 
-<h3> <span style="color:orange"> 
+<h3> <span style="color:{{site.span_h3_color}}"> 
 모듈을 사용하는 코드 (모듈)작성
 </span> </h3>
 
@@ -115,7 +114,7 @@ sample 디렉토리 안에서 다음을 실행
     go 1.15
     replace github.com/jeremyko/my_mod => ../my_mod
 
-<h3> <span style="color:orange"> 
+<h3> <span style="color:{{site.span_h3_color}}"> 
 누락된 모듈을 연결
 </span> </h3>
 
@@ -138,7 +137,7 @@ require 지시자는 현재 모듈이 필요로 하는 모듈을 선언하는 �
 
 실제 모듈이 배포가 되는 시점에는 공식 버전 관리 지침대로 버전 넘버를 설정해주면 된다. 물론 이 경우에는 replace 지시자 부분은 제거해 줘야 한다.
 
-<h3> <span style="color:orange"> 
+<h3> <span style="color:{{site.span_h3_color}}"> 
 실행
 </span> </h3>
 
@@ -147,13 +146,13 @@ sample 폴더에서 다음을 수행하여 결과를 확인한다.
     jeremyko:~/mydev/sample$ go run sample.go
     This is from MyModTest in my_mod
 
-<h3> <span style="color:orange"> 
+<h3> <span style="color:{{site.span_h3_color}}"> 
 배포
 </span> </h3>
 
 이제 테스트가 완료된 모듈은 github.com/jeremyko/my_mod 리포지토리에 push 한다.
 
-<h3> <span style="color:orange"> 
+<h3> <span style="color:{{site.span_h3_color}}"> 
 참고
 </span> </h3>
 
@@ -161,7 +160,7 @@ sample 폴더에서 다음을 수행하여 결과를 확인한다.
 
 [https://golang.org/doc/modules/version-numbers](https://golang.org/doc/modules/version-numbers)
 
-<h3> <span style="color:orange"> 
+<h3> <span style="color:{{site.span_h3_color}}"> 
 2022-03-24 update
 </span> </h3>
 

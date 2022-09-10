@@ -26,7 +26,6 @@ url: '' # the base hostname & protocol for your site, e.g. http://example.com
 # github_username:  jeremyko
 
 # Build settings
-# theme: minima
 
 # ==============================================================================
 # Site Author
@@ -53,12 +52,13 @@ footer_links:
     url: https://github.com/jeremyko
     icon: fab fa-github-square
 
-# ==============================================================================
+# ============================================================================== theme 
 # !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 # local test only !!!! github pages 에서는 build 에러 발생 함!!!
-# theme: jekyll-theme-so-simple
+theme: jekyll-theme-so-simple
+# theme: minima
 # !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-remote_theme: 'mmistakes/so-simple-theme@3.2.0'
+# remote_theme: 'mmistakes/so-simple-theme@3.2.0'
 # !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 
 # ==============================================================================
@@ -96,8 +96,9 @@ tag_archive_path: '/tags/#'
 #   - vendor/gems/
 #   - vendor/ruby/
 
-# ==============================================================================
+# ============================================================================== skin
 skin: '/assets/css/skins/dark.css'
+# ==============================================================================
 #giscus:
 #  repo:                "jeremyko/jeremyko.github.io"
 #  repo-id:             "R_kgDOH7vuQA"
@@ -110,10 +111,18 @@ skin: '/assets/css/skins/dark.css'
 
 
 # ==============================================================================
-paginate: 8
+paginate: 5
 paginate_path: /page:num/
 plugins:
   - jekyll-paginate
 
 # header_pages:
 #  - about.md
+
+# ==============================================================================
+span_emphasis_color: '#ff4500'  # orange Red
+
+span_h3_color: '#ffa500'  # orange
+
+span_h4_color: '#ff8243' # Mango Tango
+# span_h4_color: '#ffbf00' # Fluorescent Orange

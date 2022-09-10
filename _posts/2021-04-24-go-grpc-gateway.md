@@ -2,7 +2,6 @@
 layout: post
 title: go 에서 gRPC-Gateway 사용하기
 date: '2021-04-24T12:03:00.008+09:00'
-author: jeremyko
 tags:
     - golang
     - proto buffer
@@ -22,7 +21,7 @@ blogger_orig_url: https://jeremyko.blogspot.com/2021/04/go-grpc-gateway.html
 
 [https://grpc-ecosystem.github.io/grpc-gateway/docs/tutorials/introduction/](https://grpc-ecosystem.github.io/grpc-gateway/docs/tutorials/introduction/)
 
-<h3> <span style="color:orange"> 
+<h3> <span style="color:{{site.span_h3_color}}"> 
 필요한 패키지 다운로드
 </span> </h3>
 
@@ -31,7 +30,7 @@ blogger_orig_url: https://jeremyko.blogspot.com/2021/04/go-grpc-gateway.html
     go get google.golang.org/protobuf/cmd/protoc-gen-go
     go get google.golang.org/grpc/cmd/protoc-gen-go-grpc
 
-<h3> <span style="color:orange"> 
+<h3> <span style="color:{{site.span_h3_color}}"> 
 테스트 grpc 모듈 생성
 </span> </h3>
 
@@ -166,7 +165,7 @@ func main() {
 }
 ```
 
-<h3> <span style="color:orange"> 
+<h3> <span style="color:{{site.span_h3_color}}"> 
 gRPC-Gateway 기능 추가
 </span> </h3>
 
@@ -184,21 +183,21 @@ HTTP->gRPC mapping 을 추가한다
 
     // The greeting service definition
     service Greeter {
-    // Sends a greeting
-    rpc SayHello (HelloRequest) returns (HelloReply) {
-    option (google.api.http) = {
-    post: "/v1/example/echo"
-    body: "\*"
-    };
-    }
+        // Sends a greeting
+        rpc SayHello (HelloRequest) returns (HelloReply) {
+            option (google.api.http) = {
+                post: "/v1/example/echo"
+                body: "\*"
+            };
+        }
     }
     // The request message containing the user's name
     message HelloRequest {
-    string name = 1;
+        string name = 1;
     }
     // The response message containing the greetings
     message HelloReply {
-    string message = 1;
+        string message = 1;
     }
 
 이제 stub 코드를 생성한다.
@@ -334,7 +333,7 @@ go mod tidy 실행
     go: downloading golang.org/x/net v0.0.0-20210316092652-d523dce5a7f4
     go: downloading golang.org/x/sys v0.0.0-20210320140829-1e4c9ba3b0c4
 
-<h3> <span style="color:orange"> 
+<h3> <span style="color:{{site.span_h3_color}}"> 
 서버 실행
 </span> </h3>
 
@@ -353,7 +352,7 @@ go mod tidy 실행
 
 서버 응답이 오는것을 확인할수 있다.
 
-<h3> <span style="color:orange"> 
+<h3> <span style="color:{{site.span_h3_color}}"> 
 느낀점
 </span> </h3>
 

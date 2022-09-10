@@ -17,7 +17,7 @@ tags: [python, numpy, scipy]
 좀 더 자세히 알아보면,
 
 <!-- ### 머신 전체 cpu 를 사용 가능하다고 잘못 판단, 과도한 thread 를 생성 -->
-<h3> <span style="color:orange"> 머신 전체 cpu 를 사용 가능하다고 잘못 판단, 과도한 thread 를 생성 </span> </h3>
+<h3> <span style="color:{{site.span_h3_color}}"> 머신 전체 cpu 를 사용 가능하다고 잘못 판단, 과도한 thread 를 생성 </span> </h3>
 
 내가 만든 python 코드에는 thread 를 사용 한 적도 없는데 왜 thread 가 문제 인가 할 수도 있겠지만, numpy, scipy 는 내부적으로 OpenBLAS 혹은 MLK 라는 라이브러리를 사용하고 있고, multi thread를 활용 하고 있다.
 
@@ -40,7 +40,7 @@ docker container 는 가상 머신 이 아니기 때문에, docker container 에
 실제로 프로젝트에서는 docker container 생성 시 할당된 cpu 개수는 4 개였고 , 머신 이 가진 cpu는 48 개였다. 문제가 되는 코드 실행 시, 전체 thread 개수가 수 십 개가 생성이 되면서, 할당된 cpu 4 개로는 감당 못할 수준으로 느려졌고... 멈추는 현상이 나왔다.
 
 <!-- ### 환경변수 설정으로 과도한 thread 생성을 제어 -->
-<h3> <span style="color:orange"> 환경변수 설정으로 과도한 thread 생성을 제어 </span> </h3>
+<h3> <span style="color:{{site.span_h3_color}}"> 환경변수 설정으로 과도한 thread 생성을 제어 </span> </h3>
 
 그래서 이 문제를 해결하기 위해서는 thread 가 마구 생성되는 것을 제어할 필요가 있다. 다음처럼 환경 변수에 원하는 thread 개수를 설정 하면 된다.
 
@@ -104,12 +104,12 @@ def get_cpu_count():
 ```
 
 <!-- ### 그런데 머신 전체 cpu 를 정말로 사용 가능 하다 해도... -->
-<h3> <span style="color:orange"> 그런데 머신 전체 cpu 를 정말로 사용 가능 하다 해도... </span> </h3>
+<h3> <span style="color:{{site.span_h3_color}}"> 그런데 머신 전체 cpu 를 정말로 사용 가능 하다 해도... </span> </h3>
 
 그런데 또 한편으로, 머신 의 모든 cpu core 48개를 정말 다 사용 할 수 있다고 해서 그만큼 thread 가 수십 개 생기는 것은 성능에 어떤 이점이 있을까 고려해봐야 할 거 같다. thread 가 많다고 비례해서 성능이 좋아지지 않으므로. 물론 이 부분은 numpy, scipy 등에서 내부적으로 아마도.. 뭔가 처리가 있을 거 같기도 하지만.. 직접 확인은 못해본 상태이다.
 
 <!-- ### 작성한 코드가 이미 thread 를 사용 하는지 여부 -->
-<h3> <span style="color:orange"> 작성한 코드가 이미 thread 를 사용 하는지 여부 </span> </h3>
+<h3> <span style="color:{{site.span_h3_color}}"> 작성한 코드가 이미 thread 를 사용 하는지 여부 </span> </h3>
 
 한 가지 더 고려해 봐야 할 것이 있는데, 작성한 코드가 이미 multi thread를 사용하고 있는 경우이다. 이 경우엔 OpenBLAS, MLK 이 만드는 thread와 충돌이 발생되어 deadlocks 등의 문제가 발생될 수 있다.
 
@@ -124,12 +124,12 @@ def get_cpu_count():
     os.environ['OMP_NUM_THREADS']= "1"
 
 <!-- ### 코드 동작 환경을 먼저 분석하고 진짜 thread 문제 인지 파악 필요 -->
-<h3> <span style="color:orange"> 코드 동작 환경을 먼저 분석하고 진짜 thread 문제 인지 파악 필요 </span> </h3>
+<h3> <span style="color:{{site.span_h3_color}}"> 코드 동작 환경을 먼저 분석하고 진짜 thread 문제 인지 파악 필요 </span> </h3>
 
 개발자라면 당연하게 여기겠지만, 자신의 코드가 동작하는 환경을 먼저 분석하고, 문제점이 이에 해당되는 경우에만 thread 개수 설정을 해야 한다. 임의로 개수 조정하는 것은 오히려 성능을 더 저하 시키는 요인이 될 수도 있다는 것을 유념해 둘 필요가 있다.
 
 <!-- ### 참고 -->
-<h4> <span style="color:orange"> 참고 </span> </h4>
+<h3> <span style="color:{{site.span_h4_color}}"> 참고 </span> </h3>
 
 [cgroupfs 참고](https://tech.kakao.com/2020/06/29/cgroup-driver/)
 

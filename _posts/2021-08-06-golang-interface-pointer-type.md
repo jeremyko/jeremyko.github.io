@@ -2,7 +2,6 @@
 layout: post
 title: 'golang : interface 로 전달받은 pointer 가 가르키는 type 을 찾기'
 date: '2021-08-06T22:59:00.004+09:00'
-author: jeremyko
 tags:
     - golang
 modified_time: '2021-08-07T11:19:41.153+09:00'

@@ -2,7 +2,6 @@
 layout: post
 title: '(windows 10) IntelliJ IDEA  + IdeaVim 사용시 벨 소리 제거'
 date: '2021-03-14T15:08:00.010+09:00'
-author: jeremyko
 tags:
     - IdeaVim
     - IntelliJ IDEA

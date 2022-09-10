@@ -2,7 +2,6 @@
 layout: post
 title: golang 1.18의 workspace mode 알아보기
 date: '2022-03-24T14:51:00.013+09:00'
-author: jeremyko
 tags:
     - golang
 modified_time: '2022-09-01T22:24:13.100+09:00'
@@ -33,11 +32,11 @@ A모듈의 go.mod 파일에서 replace 지시자를 사용해서, B모듈의 경
 그럼 이전 글에서 설명된 예제를 workspace 를 사용하는 것으로 수정을 해본다.
 
 <!-- ### 모듈을 만들고 go 1.18 workspace를 사용해서 타 모듈에서 사용하기 -->
-<h3> <span style="color:orange"> 모듈을 만들고 go 1.18 workspace를 사용해서 타 모듈에서 사용하기 </span> </h3>
+<h3> <span style="color:{{site.span_h3_color}}"> 모듈을 만들고 go 1.18 workspace를 사용해서 타 모듈에서 사용하기 </span> </h3>
 
 <!-- #### workspace 를 위한 디렉토리 생성 -->
 
-<h4> <span style="color:orange"> workspace 를 위한 디렉토리 생성 </span> </h4>
+<h4> <span style="color:{{site.span_h4_color}}"> workspace 를 위한 디렉토리 생성 </span> </h4>
 
 먼저 workspace 사용을 위해서는 go.work 파일 관리가 용이 하게 끔, 별도의 디렉터리를 하나 만들어서 그 내부에서 개발을 진행 하는 것이 깔끔하다.  
 즉 workspace 별 디렉터리를 새로 만들고 그 안에 내가 신규/수정하려는 모듈들을 모아 놓고 작업을 하는 것이다.
@@ -59,7 +58,7 @@ A모듈의 go.mod 파일에서 replace 지시자를 사용해서, B모듈의 경
     cd my_mod
 
 <!-- #### 신규 작성할 모듈 폴더에서 go mod init 을 수행한다. -->
-<h4> <span style="color:orange">신규 작성할 모듈 폴더에서 go mod init 을 수행한다</span> </h4>
+<h4> <span style="color:{{site.span_h4_color}}">신규 작성할 모듈 폴더에서 go mod init 을 수행한다</span> </h4>
 
     cd ~/mydev/workspace_test/my_mod
 
@@ -71,7 +70,7 @@ A모듈의 go.mod 파일에서 replace 지시자를 사용해서, B모듈의 경
     go 1.18
 
 <!-- #### 모듈 코드를 작성한다 -->
-<h4> <span style="color:orange">모듈 코드를 작성한다</span> </h4>
+<h4> <span style="color:{{site.span_h4_color}}">모듈 코드를 작성한다</span> </h4>
 
 my_mod.go 파일을 생성하고 다음 내용을 추가한다.
 
@@ -84,7 +83,7 @@ func MyModTest() string {
 ```
 
 <!-- #### my_mod 모듈을 사용하는 코드 (모듈)작성 -->
-<h4> <span style="color:orange">my_mod 모듈을 사용하는 코드 (모듈)작성</span> </h4>
+<h4> <span style="color:{{site.span_h4_color}}">my_mod 모듈을 사용하는 코드 (모듈)작성</span> </h4>
 
 이제, 내가 작성한 my_mod 를 다른 모듈에서 사용하는 측면에서 살펴본다.
 그 모듈도 신규로 개발해야 하는 상황이라고 가정 해본다. 신규로 개발해야 할 또 다른 모듈은 main package를 가진 모듈이다.
@@ -134,7 +133,8 @@ func main() {
     sample.go:6:2: no required module provides package github.com/jeremyko/my_mod: go.mod file not found in current directory or any parent directory; see 'go help modules'
 
 <!-- ### 그래서 go 1.18 이전까지는 개발을 위해서는 아래 내용처럼, go.mod 파일 내에서 replace 를 사용해서 로컬 위치로 경로를 조정해 줘야 했지만, 이젠 workspace를 사용하면 된다. -->
-<h3> <span style="color:orange">그래서 go 1.18 이전까지는 개발을 위해서는 아래 내용처럼, go.mod 파일 내에서 replace 를 사용해서 로컬 위치로 경로를 조정해 줘야 했지만, 이젠 workspace를 사용하면 된다</span> </h3>
+
+<span style="color:{{site.span_emphasis_color}}">그래서 go 1.18 이전까지는 개발을 위해서는 아래 내용처럼, go.mod 파일 내에서 replace 를 사용해서 로컬 위치로 경로를 조정해 줘야 했지만, 이젠 workspace를 사용하면 된다</span>
 
 _~~그러므로 개발 단계에서는 sample.go 를 실행하기 위해서, 로컬 위치에서 my_mod 모듈을 찾을 수 있게 임시로 조정을 해줘야 한다. 이를 위해서는 go mod edit 명령을 사용한다. sample 디렉토리 안에서 다음을 실행~~_
 
@@ -148,7 +148,7 @@ _~~replace github.com/jeremyko/my_mod => ../my_mod~~_
 
 <!-- #### workspace 생성하기 -->
 
-<h4> <span style="color:orange"> workspace 생성하기 </span> </h4>
+<h4> <span style="color:{{site.span_h4_color}}"> workspace 생성하기 </span> </h4>
 
 workspace 는 go.work 파일 내의 내용으로 정의가 된다.
 
@@ -173,7 +173,7 @@ workspace_test 디렉토리 에서 다음 명령을 실행한다.
     └── sample.go
 
 <!-- #### workspace 에 모듈을 추가 -->
-<h4> <span style="color:orange">workspace 에 모듈을 추가</span> </h4>
+<h4> <span style="color:{{site.span_h4_color}}">workspace 에 모듈을 추가</span> </h4>
 
 이제 my_mod 모듈을 workspace 에 추가해서, 해당 workspace 에 있는 타 모듈이 사용 할 수 있게 한다.
 
@@ -223,7 +223,7 @@ workspace 모듈의 정의는 go.work 파일로부터의 상대 경로로 모듈
     )
 
 <!-- #### 실행 -->
-<h4> <span style="color:orange">실 행</span> </h4>
+<h4> <span style="color:{{site.span_h4_color}}">실 행</span> </h4>
 
 sample 폴더에서 다시 실행해서 my_mod 를 제대로 가져와서 정상적으로 실행되는 지 확인한다.
 
@@ -238,7 +238,7 @@ sample 폴더에서 다시 실행해서 my_mod 를 제대로 가져와서 정상
 여러 모듈을 동시에 개발 할 수 있게 된다.**
 
 <!-- #### workspace replace 지시자 -->
-<h4> <span style="color:orange">workspace replace 지시자</span> </h4>
+<h4> <span style="color:{{site.span_h4_color}}">workspace replace 지시자</span> </h4>
 
 자 그런데 여기서.. workspace 에도 replace 를 사용 할 수도 있다.. 사용법은 기존에 go.mod 내에 사용하던 mod replace 와 동일하다.
 
@@ -249,7 +249,7 @@ sample 폴더에서 다시 실행해서 my_mod 를 제대로 가져와서 정상
 아마도 내 생각으로는 replace는 안 쓰고도 개발이 가능 할것 같지만 (그래서 아직도 약간 헷갈리는 게 사실), replace 와 use 지시자를 동시에 사용 할 수도 있으니, 좀 더 유연하게 개발 할 수는 있을 것 같다.
 
 <!-- ### 참고 -->
-<h3> <span style="color:orange">참고</span> </h3>
+<h3> <span style="color:{{site.span_h3_color}}">참고</span> </h3>
 
 [https://go.dev/doc/tutorial/workspaces](https://go.dev/doc/tutorial/workspaces)
 

@@ -2,7 +2,6 @@
 layout: post
 title: ' flutter : package plugin (using swift and kotlin) proximity_sensor '
 date: '2021-03-28T20:16:00.012+09:00'
-author: jeremyko
 tags:
     - swift
     - flutter

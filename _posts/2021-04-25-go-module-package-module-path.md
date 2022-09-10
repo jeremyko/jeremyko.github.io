@@ -2,7 +2,6 @@
 layout: post
 title: 'go module과 package 관계, 그리고 module path 개념 정리 '
 date: '2021-04-25T16:06:00.010+09:00'
-author: jeremyko
 tags:
     - golang
     - module path
@@ -10,6 +9,8 @@ modified_time: '2022-03-25T18:56:05.120+09:00'
 blogger_id: tag:blogger.com,1999:blog-7360229670252766698.post-7542288710681271258
 blogger_orig_url: https://jeremyko.blogspot.com/2021/04/go-module-package-module-path.html
 ---
+
+[https://github.com/jeremyko/go-module-package-path-test](https://github.com/jeremyko/go-module-package-path-test)
 
 go 의 기본적인 개념 중에서 모듈, package 그리고 모듈 경로에 대해 알아본다.
 
@@ -29,21 +30,14 @@ go 의 기본적인 개념 중에서 모듈, package 그리고 모듈 경로에 
 
     mkdir go_test
 
-<h3> <span style="color:orange">
+<h3> <span style="color:{{site.span_h3_color}}">
 프로젝트는 여러개의 모듈을 가질수 있다.
 </span> </h3>
 
 go_test 프로젝트에 2개의 모듈이 필요하다고 임의로 가정하자.
 
-<span style="color:orange">
-common_mod 
-</span> 
-모듈은 공통 기능을 위한 것
-
-<span style="color:orange">
-main_mod 
-</span> 
-모듈은 메인 package가 있는 실제 실행되는 모듈이라고 가정한다.
+<span style="color:orange"> common_mod </span> 모듈은 공통 기능을 위한 것  
+<span style="color:orange"> main_mod </span> 모듈은 메인 package가 있는 실제 실행되는 모듈이라고 가정한다.
 
 이 2개 폴더를 생성해준다.
 
@@ -76,7 +70,7 @@ main_mod
 
 2개의 모듈을 만들었다.
 
-<h3> <span style="color:orange">각 모듈에는 여러개의 package들이 존재할수 있다</span> </h3>
+<h3> <span style="color:{{site.span_h3_color}}">각 모듈에는 여러개의 package들이 존재할수 있다</span> </h3>
 
 common_mod 모듈 디렉토리내에 패키지 폴더 test_pkg1 를 만들고, 그 안에 test_pkg1.go 파일을 생성한다.
 
@@ -113,7 +107,7 @@ func MyPkgFunc1st() string {
 
 이제 common_mod 모듈은 test_pkg1, test_pkg2 패키지를 가진다.
 
-<h3> <span style="color:orange">각 package 들은 1개 이상의 go 소스파일로 구성된다.</span> </h3>
+<h3> <span style="color:{{site.span_h3_color}}">각 package 들은 1개 이상의 go 소스파일로 구성된다.</span> </h3>
 
 test_pkg2 에 test_pkg2_2nd.go 파일을 생성한다.
 
@@ -131,14 +125,14 @@ func MyPkgFunc2nd() string {
 
 test_pkg2 는 test_pkg2_1st.go, test_pkg2_2nd.go 2개의 go 소스 파일을 가진다.
 
-<h3> <span style="color:orange">
+<h3> <span style="color:{{site.span_h3_color}}">
 모듈내의 각 package 들은 자신의 package 폴더를 go mod init 으로 지정한 모듈 경로 + 폴더로 만들면 된다.
 </span> </h3>
 
 package 폴더를 common_mod/test_pkg1, common_mod/test_pkg2 로 생성했고,  
 실제 go 파일에서는 test_pkg1, test_pkg2 로 package 명을 사용했다.
 
-<h3> <span style="color:orange">
+<h3> <span style="color:{{site.span_h3_color}}">
 패키지명은 (반드시) 경로의 마지막 문자열로 해준다.
 </span> </h3>
 
@@ -166,7 +160,7 @@ fmt.Println(test_pkg1_hahaha.MyPkgFunc1())
 
 하지만 사용하는 측면에서 매우 혼란스럽기 때문에 폴더명과 패키지명을 일치시켜야 한다.
 
-<h3> <span style="color:orange">
+<h3> <span style="color:{{site.span_h3_color}}">
 개발중인 모듈은 반드시 원격 저장소에 배포될 필요 없다.
 </span> </h3>
 
@@ -229,7 +223,7 @@ func main() {
     └── test_pkg3
     └── test_pkg3.go
 
-<h3> <span style="color:orange">
+<h3> <span style="color:{{site.span_h3_color}}">
 여러 모듈을 개발중이며 다른 모듈의 기능을 사용하는 경우
 </span> </h3>
 
@@ -301,11 +295,9 @@ main_mod 폴더에서 다음을 수행해서 로컬경로로 대치한다.
     This is from 1st.test_pkg2.common_mod
     This is from 2nd.test_pkg2.common_mod
 
-<h3> <span style="color:orange">
+<h3> <span style="color:{{site.span_h3_color}}">
 2022-03-24 update
 </span> </h3>
 
 [go 1.18부터 도입된 workspace 기능]({% post_url 2022-03-24-golang-118-workspace-mode %})
 을 사용하면 mod replace 를 대체 가능하다
-
-[최종 결과 코드](https://github.com/jeremyko/go-module-package-path-test)

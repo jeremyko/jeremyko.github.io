@@ -2,7 +2,6 @@
 layout: post
 title: 'GOSOF : A simple yet quite practical socket framework made with golang.'
 date: '2022-01-02T00:46:00.018+09:00'
-author: jeremyko
 tags:
     - golang
     - socket
@@ -16,16 +15,16 @@ blogger_orig_url: https://jeremyko.blogspot.com/2022/01/gosof-simple-and-easy-go
 
 Instead of the simple socket echo example that comes up a lot if you search, I tried to implement it so that it can properly handle the buffering of tcp data that can be split into pieces or transmitted all at once. And to increase reusability, I implemented it so that it can be used like a framework.
 
-The framework calls the user-specified callback.
-For TCP, the total size of user data is passed to the framework via a callback, and the framework does TCP buffering automatically.
-Byte data is exchanged.
-Supports TCP, UDP and Domain Socket.
+-   The framework calls the user-specified callback.
+-   For TCP, the total size of user data is passed to the framework via a callback, and the framework does TCP buffering automatically.
+-   Byte data is exchanged.
+-   Supports TCP, UDP and Domain Socket.
 
 When sending a byte message composed of a fixed-length header and variable-length body data, it may be useful as it can reduce the work a little.
 
 udp and domain socket are also supported, but this is not much different from using the existing net package as it is, so there is no special point.
 
-<h3> <span style="color:orange"> 
+<h3> <span style="color:{{site.span_h3_color}}"> 
 golang 으로 만든 간단하면서도 꽤 실용적인 socket 프레임워크.
 </span> </h3>
 

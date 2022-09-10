@@ -2,7 +2,6 @@
 layout: post
 title: macbook pro 2012 mid LCD replacement (맥북 액정 교체기)
 date: '2021-05-29T23:06:00.015+09:00'
-author: jeremyko
 tags:
     - lcd replacement
     - macbook pro 2012 mid
@@ -112,7 +111,7 @@ blogger_orig_url: https://jeremyko.blogspot.com/2021/05/macbook-pro-2012-mid-lcd
 
 ![image](/assets/img/20210529-맥북수리후.jpg){: width="800"}
 
-<h3> <span style="color:orange">후 기</span> </h3>
+<h3> <span style="color:{{site.span_h3_color}}">후 기</span> </h3>
 
 작업 후 생각을 해보니, 내 맥북은그나마 비교적 액정 교체 작업이 쉬운편에 속한다는 것을 알게 되었다.
 

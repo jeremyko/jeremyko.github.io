@@ -2,7 +2,6 @@
 layout: post
 title: 'flutter : push-up mania '
 date: '2021-04-15T22:09:00.016+09:00'
-author: jeremyko
 tags:
     - pushup
     - flutter

@@ -2,7 +2,6 @@
 layout: post
 title: 'go 에서 proto buffer 사용하기 '
 date: '2021-04-22T21:18:00.010+09:00'
-author: jeremyko
 tags:
     - golang
     - proto buffer
@@ -11,7 +10,7 @@ blogger_id: tag:blogger.com,1999:blog-7360229670252766698.post-16995521166370810
 blogger_orig_url: https://jeremyko.blogspot.com/2021/04/go-proto-buffer.html
 ---
 
-<h3> <span style="color:orange"> 
+<h3> <span style="color:{{site.span_h3_color}}"> 
 proto buffer 를 정의 -> go 로 변환하여 모듈을 만들고 -> 이 모듈을 로컬에서 호출해서 사용 하는 간단한 예제를 정리해 본다 (go 1.16 버전을 기준)
 </span> </h3>
 
@@ -150,7 +149,7 @@ main.go 를 실행하여 정상여부 확인
     2021/04/22 14:25:11 msg: some text
     2021/04/22 14:25:11 number: 999
 
-<h3> <span style="color:orange"> 
+<h3> <span style="color:{{site.span_h3_color}}"> 
 참고
 </span> </h3>
 

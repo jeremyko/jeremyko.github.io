@@ -57,7 +57,7 @@ df_small 의 모든 row 마다 df_big 의 모든 row 간 거리(squared euclidea
 수 분 이상 걸리고 있었다.
 
 <!-- ### 개선 시도 1 (iterrows) -->
-<h3> <span style="color:orange"> 개선 시도 1 (iterrows) </span> </h3>
+<h3> <span style="color:{{site.span_h3_color}}"> 개선 시도 1 (iterrows) </span> </h3>
 
 처음 시도 했던 것은 for loop 부분에서 iterrows()를 사용해보는 것이었다.
 
@@ -76,7 +76,7 @@ for _, small_row in df_small.iterrows():
 절대적이지 않고 테스트 해봐야만 알 수 있다.
 
 <!-- ### 개선 시도 2 (at) -->
-<h3> <span style="color:orange"> 개선 시도 2 (at) </span> </h3>
+<h3> <span style="color:{{site.span_h3_color}}"> 개선 시도 2 (at) </span> </h3>
 
 그럼 for loop 부분에서 loc 보다는 좀 더 빠르다는 at 으로 변경 해보자.
 
@@ -93,7 +93,7 @@ for index_small in df_small.index:
 결과는 3초 정도로 많이 빨라졌다.
 
 <!-- ### 개선 시도 3 (vectorization) -->
-<h3> <span style="color:orange"> 개선 시도 3 (vectorization) </span> </h3>
+<h3> <span style="color:{{site.span_h3_color}}"> 개선 시도 3 (vectorization) </span> </h3>
 
 지금 이중 for loop 를 돌고 있는데 안쪽 for loop 대신 벡터 연산 으로 대체 해 보자.
 
@@ -112,7 +112,7 @@ df_big 에 대해서 개별 row 접근이 아닌 벡터 연산 처리로 수정�
 실행 해보면 이 간단한 수정으로 0.03 초로 감소되어 무려 200배 정도 빨라졌다.
 
 <!-- ### 개선 시도 4 (vectorization + numpy) -->
-<h3> <span style="color:orange"> 개선 시도 4 (vectorization + numpy) </span> </h3>
+<h3> <span style="color:{{site.span_h3_color}}"> 개선 시도 4 (vectorization + numpy) </span> </h3>
 
 0.03초 면 충분하다고 할 수도 있지만, 실제 데이터는 수십 만 건일 수도 있어서 안심할 수 없었다.
 여기서 조금 더 나아가 보자.
@@ -131,7 +131,7 @@ numpy 배열은 동일한 type으로 처리되기 때문에 불필요한 동적 
 수행하지 않아, pandas series 처리보다 훨씬 빠르다.
 
 <!-- ### 개선 시도 5 (apply + vectorization + numpy) -->
-<h3> <span style="color:orange"> 개선 시도 5 (apply + vectorization + numpy) </span> </h3>
+<h3> <span style="color:{{site.span_h3_color}}"> 개선 시도 5 (apply + vectorization + numpy) </span> </h3>
 
 코드엔 아직 for loop 가 하나 더 남아있는데, 인터넷에 검색해보면 나오는
 수많은 pandas speed tricks 중에 이런 for loop 사용은 지양 해야 할 순위 1 번으로 되어 있다.
@@ -164,6 +164,6 @@ def get_distance(small_row, arg_df_big):
 전체 수행 시간을 1시간 20분 --> 10분으로 단축 시킬 수 있었다.
 
 <!-- ### 전체 코드 -->
-<h3> <span style="color:orange"> 전체 코드 </span> </h3>
+<h3> <span style="color:{{site.span_h3_color}}"> 전체 코드 </span> </h3>
 
 [https://gist.github.com/jeremyko/b92399a94dd01db3cf5499a3a2b5afc4](https://gist.github.com/jeremyko/b92399a94dd01db3cf5499a3a2b5afc4)

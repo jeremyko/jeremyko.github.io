@@ -2,7 +2,6 @@
 layout: post
 title: 'flutter : using mixed null safety for legacy packages'
 date: '2021-04-03T15:12:00.014+09:00'
-author: jeremyko
 tags:
     - flutter
     - breaking upgrade
@@ -58,7 +57,7 @@ ctrl + shift +p 를 눌러서 ==> Preference: Open Workspace Settings(JSON) 수�
 
     flutter build apk --no-sound-null-safety
 
-<h3> <span style="color:orange"> 
+<h3> <span style="color:{{site.span_h3_color}}"> 
 참고
 </span> </h3>
 
