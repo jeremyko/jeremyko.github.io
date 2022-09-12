@@ -14,10 +14,13 @@ oracle stored procedure 등에서 외부 ip address접근 시도시 ACL오류 �
 
 -   먼저 현재 상태 확인
 
+```sql
     select `*` from DBA_NETWORK_ACLS ;
+```
 
 -   해당 ip address 없으면 새로운 ACL 생성
 
+```sql
     exec dbms_network_acl_admin.create_acl('test_tcp.xml','Network connection permission to HTTP server for TEST', 'TEST', TRUE, 'connect');
 
     exec dbms_network_acl_admin.add_privilege('test_tcp.xml','DB계정',true,'resolve');
@@ -25,3 +28,4 @@ oracle stored procedure 등에서 외부 ip address접근 시도시 ACL오류 �
     exec dbms_network_acl_admin.add_privilege('test_tcp.xml','DB계정',true,'connect');
 
     exec dbms_network_acl_admin.assign_acl('test_tcp.xml','192.168.1.111');
+```

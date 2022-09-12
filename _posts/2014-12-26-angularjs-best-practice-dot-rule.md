@@ -21,6 +21,7 @@ AngularJS 에서 model을 UI 에 바인딩 시키는 경우, 이른바 **'dot ru
 (scope 구분을 쉽게 하기 위해 붉은색 박스로 처리했다)
 
 [에러가 발생되는 예제](https://jsbin.com/henuxa/2/edit?html,js,output)
+{: .notice--info}
 
 ![blog-image](/assets/img/20141226-notworking-capture.JPG)
 
@@ -49,6 +50,7 @@ AngularJS 에서 `$scope` 객체는 상속 관계를 가진다. 스코프가 중
 **위 예제의 AngularJS scope 상속관계를 평범한 javascript 에서의 상속 관계로 표현 하자면 다음과 같다.**
 
 [https://jsbin.com/niwoco/2/edit?html,js,output](https://jsbin.com/niwoco/2/edit?html,js,output)
+{: .notice--info}
 
 ```js
 var parentScope = { property: '' };
@@ -112,6 +114,7 @@ dot rule 적용 </span> </h3>
 예제에서는 objStringPrimitive 객체를 사용하는 것을 의미한다.
 
 [정상 동작하게 수정한 예제](https://jsbin.com/wadumi/4/edit?html,js,output)
+{: .notice--info}
 
 ![blog-image](/assets/img/20141226-working-capture.JPG)
 
@@ -126,10 +129,7 @@ scope가 중첩되는 경우, $scope객체는 일반적인 javascript의 prototy
 
 <h3> <span style="color:{{site.span_h3_color}}"> 참고 </span> </h3>
 
-[AngularJS Best Practices](http://www.youtube.com/watch?v=ZhfUv0spHCY)
-
-[https://github.com/angular/angular.js/wiki/Understanding-Scopes](https://github.com/angular/angular.js/wiki/Understanding-Scopes)
-
-[http://nathanleclaire.com/blog/2014/04/19/5-angularjs-antipatterns-and-pitfalls/](http://nathanleclaire.com/blog/2014/04/19/5-angularjs-antipatterns-and-pitfalls/)
-
+[AngularJS Best Practices](http://www.youtube.com/watch?v=ZhfUv0spHCY)  
+[https://github.com/angular/angular.js/wiki/Understanding-Scopes](https://github.com/angular/angular.js/wiki/Understanding-Scopes)  
+[http://nathanleclaire.com/blog/2014/04/19/5-angularjs-antipatterns-and-pitfalls/](http://nathanleclaire.com/blog/2014/04/19/5-angularjs-antipatterns-and-pitfalls/)  
 [http://jimhoskins.com/2012/12/14/nested-scopes-in-angularjs.html](http://jimhoskins.com/2012/12/14/nested-scopes-in-angularjs.html)

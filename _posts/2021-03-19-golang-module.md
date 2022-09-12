@@ -11,8 +11,8 @@ blogger_orig_url: https://jeremyko.blogspot.com/2021/03/golang-module.html
 
 golang 모듈을 만들고 타 모듈에서 사용하는 것을 한번 정리해보았다.
 
-내가 만들려고 하는 모듈이 <span style="color:yellow">github.com/jeremyko/my_mod </span>이며,  
-모듈 폴더는 <span style="color:yellow">~/mydev/my_mod</span> 라고 가정한다.
+내가 만들려고 하는 모듈이 <span style="color:{{site.span_emphasis_color}}">github.com/jeremyko/my_mod </span>이며,  
+모듈 폴더는 <span style="color:{{site.span_emphasis_color}}">~/mydev/my_mod</span> 라고 가정한다.
 
 <h3> <span style="color:{{site.span_h3_color}}"> 
 작업중인 모듈 폴더에서 go mod init 을 수행한다.
@@ -22,16 +22,14 @@ golang 모듈을 만들고 타 모듈에서 사용하는 것을 한번 정리해
 
     go mod init github.com/jeremyko/my_mod
 
-수행하면, 내가 만드는 모듈에서 사용되는 모든 외부 코드들의 의존성(dependency)을  
-추적하기 위한 용도의 go.mod 이 생성된다.  
+수행하면, 내가 만드는 모듈에서 사용되는 모든 외부 코드들의 의존성(dependency)을 추적하기 위한 용도의 go.mod 이 생성된다.
+
 내용은 다음과 같다.
 
     module github.com/jeremyko/my_mod
     go 1.15
 
-지금은 내가 만드는 모듈에 대한 정보만 존재하지만,  
-다른 개발자의 모듈을 import 하는 경우에는  
-그 의존성 정보들도 추가될것이다.
+지금은 내가 만드는 모듈에 대한 정보만 존재하지만, 다른 개발자의 모듈을 import 하는 경우에는 그 의존성 정보들도 추가될것이다.
 
 <h3> <span style="color:{{site.span_h3_color}}"> 
 모듈 코드를 작성한다
@@ -53,9 +51,12 @@ func MyModTest() string {
 
 이제, 내가 작성한 my_mod 를 다른 모듈에서 사용하는 측면에서 살펴본다.
 
-이것은 개발중인 모듈을 로컬에서 테스트 하는 용도로도 활용 될 것이다.  
-main package를 사용하기 위한 용도로 테스트 모듈을 새로 만드는것이다.  
-이 모듈은 github.com/jeremyko/sample 로 하기로 한다.  
+이것은 개발중인 모듈을 로컬에서 테스트 하는 용도로도 활용 될 것이다.
+
+main package를 사용하기 위한 용도로 테스트 모듈을 새로 만드는것이다.
+
+이 모듈은 github.com/jeremyko/sample 로 하기로 한다.
+
 이를 위해 sample 디렉토리를 생성하고 이동.
 
     cd ~/mydev
@@ -94,16 +95,16 @@ func main() {
     ├── go.mod
     └── sample.go
 
-이제, my_mod 이 배포되어 공개된 모듈이라면 이 상태에서  
-바로 sample.go 를 실행하면 되겠지만,  
-지금은 my_mod 모듈이 아직 발행(publish) 되기 전이므로,  
-go 를 사용하여 정식 다운로드를 할수 없다.  
-즉 github.com/jeremyko/my_mod 와 같은 경로를 현재 사용할수 없다.
+이제, my_mod 이 배포되어 공개된 모듈이라면 이 상태에서 바로 sample.go 를 실행하면 되겠지만,
 
-그러므로 개발 단계에서는 sample.go 를 실행하기 위해서,  
-로컬 위치에서 my_mod 모듈을 찾을수 있게 임시로 조정을 해줘야 한다.
+지금은 my_mod 모듈이 아직 발행(publish) 되기 전이므로, go 를 사용하여 정식 다운로드를 할수 없다.
 
-이를 위해서는 <span style="color:yellow">go mod edit -replace</span> 명령을 사용한다.  
+즉 `github.com/jeremyko/my_mod` 와 같은 경로를 현재 사용할수 없다.
+
+그러므로 개발 단계에서는 sample.go 를 실행하기 위해서, 로컬 위치에서 my_mod 모듈을 찾을수 있게 임시로 조정을 해줘야 한다.
+
+이를 위해서는 <span style="color:{{site.span_emphasis_color}}">go mod edit -replace</span> 명령을 사용한다.
+
 sample 디렉토리 안에서 다음을 실행
 
     go mod edit -replace github.com/jeremyko/my_mod=../my_mod
@@ -118,14 +119,14 @@ sample 디렉토리 안에서 다음을 실행
 누락된 모듈을 연결
 </span> </h3>
 
-sample 모듈이 my_mod 모듈을 사용한다는것을 설정하기 위해 다음을  
-sample 폴더에서 수행한다.  
+sample 모듈이 my_mod 모듈을 사용한다는것을 설정하기 위해 다음을 sample 폴더에서 수행한다.
+
 즉 의존성을 정리하기 위한 명령을 수행하는 것이다.
 
     go mod tidy
 
-명령을 실행하면 로컬에서 my_mod 코드를 찾아서 go.mod 파일에 다음처럼 마지막에  
-require 지시자가 추가된다.  
+명령을 실행하면 로컬에서 my_mod 코드를 찾아서 go.mod 파일에 다음처럼 마지막에 require 지시자가 추가된다.
+
 require 지시자는 현재 모듈이 필요로 하는 모듈을 선언하는 용도이다.
 
     module github.com/jeremyko/sample
@@ -156,8 +157,7 @@ sample 폴더에서 다음을 수행하여 결과를 확인한다.
 참고
 </span> </h3>
 
-[https://golang.org/doc/tutorial/create-module](https://golang.org/doc/tutorial/create-module)
-
+[https://golang.org/doc/tutorial/create-module](https://golang.org/doc/tutorial/create-module)  
 [https://golang.org/doc/modules/version-numbers](https://golang.org/doc/modules/version-numbers)
 
 <h3> <span style="color:{{site.span_h3_color}}"> 

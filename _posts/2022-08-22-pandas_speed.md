@@ -10,8 +10,8 @@ tags: [python, numpy, pandas]
 그런데 기존에 있던 처리 속도가 느려서 이 부분을 검토하면서,
 처리 속도를 높이기 위해 이것 저것 수정해서 테스트 하다 보니 알게 된 것들이 있어서 정리해 본다.
 
--   <span style="color:orange">최선의 방식은 numpy ndarray vectorization 처리다</span>
--   <span style="color:orange">for loop를 이용해서 모든 데이터를 순회하는 방식은 피해야 한다.
+-   <span style="color:{{site.span_h4_color}}">최선의 방식은 numpy ndarray vectorization 처리다</span>
+-   <span style="color:{{site.span_h4_color}}">for loop를 이용해서 모든 데이터를 순회하는 방식은 피해야 한다.
     (nested for loop 방식은 어떤 식 으로 든 개선의 여지가 있다)</span>
 
 그럼 위 내용에 대해서 상세히 확인 해 보도록 하자.
@@ -165,5 +165,6 @@ def get_distance(small_row, arg_df_big):
 
 <!-- ### 전체 코드 -->
 <h3> <span style="color:{{site.span_h3_color}}"> 전체 코드 </span> </h3>
+{: .notice--accent}
 
 [https://gist.github.com/jeremyko/b92399a94dd01db3cf5499a3a2b5afc4](https://gist.github.com/jeremyko/b92399a94dd01db3cf5499a3a2b5afc4)

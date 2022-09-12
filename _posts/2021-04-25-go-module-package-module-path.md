@@ -11,24 +11,25 @@ blogger_orig_url: https://jeremyko.blogspot.com/2021/04/go-module-package-module
 ---
 
 [https://github.com/jeremyko/go-module-package-path-test](https://github.com/jeremyko/go-module-package-path-test)
+{: .notice--info}
 
 go 의 기본적인 개념 중에서 모듈, package 그리고 모듈 경로에 대해 알아본다.
 
 지금 우리가 go 로 어떤 프로젝트를 수행한다고 가정해 보면, 다음처럼 정리 할 수 있겠다.
 
--   이 프로젝트는 여러개의 모듈을 가질수 있다.
+-   **이 프로젝트는 여러개의 모듈을 가질수 있다.**
 
--   각 모듈에는 여러개의 package들이 존재할수 있다.
+-   **각 모듈에는 여러개의 package들이 존재할수 있다.**
 
--   각 package 들은 1개 이상의 go 소스파일로 구성된다.
+-   **각 package 들은 1개 이상의 go 소스파일로 구성된다.**
 
--   모듈내의 각 package 들은 자신의 package 폴더를 go mod init 으로 지정한 모듈 경로 + 폴더로 만들면 된다.
+-   **모듈내의 각 package 들은 자신의 package 폴더를 go mod init 으로 지정한 모듈 경로 + 폴더로 만들면 된다.**
 
--   패키지명은 (반드시) 경로의 마지막 문자열로 해준다.
+-   **패키지명은 (반드시) 경로의 마지막 문자열로 해준다.**
 
--   개발중인 모듈은 반드시 원격 저장소에 배포될 필요가 없다.
+-   **개발중인 모듈은 반드시 원격 저장소에 배포될 필요가 없다.**
 
--   로컬 개발환경에서 동시에 여러 모듈을 개발중이고, A모듈이 B모듈을 사용해야 한다면, B모듈의 경로를 개발 중인 로컬 경로로 변경하는 작업이 필요하다.(update: <span style="color:orange">go 1.18 부터는 그냥 [workspace]({% post_url 2022-03-24-golang-118-workspace-mode %}) 를 사용하면 됨</span>)
+-   **로컬 개발환경에서 동시에 여러 모듈을 개발중이고, A모듈이 B모듈을 사용해야 한다면, B모듈의 경로를 개발 중인 로컬 경로로 변경하는 작업이 필요하다.**(update: <span style="color:{{site.span_emphasis_color}}">go 1.18 부터는 그냥 [workspace]({% post_url 2022-03-24-golang-118-workspace-mode %}) 를 사용하면 됨</span>)
 
 위 내용들을 하나씩 살펴보자. (go 1.16 기준으로 작성됨)
 
@@ -42,8 +43,8 @@ go 의 기본적인 개념 중에서 모듈, package 그리고 모듈 경로에 
 
 go_test 프로젝트에 2개의 모듈이 필요하다고 임의로 가정하자.
 
-<span style="color:orange"> common_mod </span> 모듈은 공통 기능을 위한 것  
-<span style="color:orange"> main_mod </span> 모듈은 메인 package가 있는 실제 실행되는 모듈이라고 가정한다.
+<span style="color:{{site.span_emphasis_color}}"> common_mod </span> 모듈은 공통 기능을 위한 것  
+<span style="color:{{site.span_emphasis_color}}"> main_mod </span> 모듈은 메인 package가 있는 실제 실행되는 모듈이라고 가정한다.
 
 이 2개 폴더를 생성해준다.
 

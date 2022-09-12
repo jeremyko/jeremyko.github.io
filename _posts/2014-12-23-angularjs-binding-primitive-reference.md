@@ -54,6 +54,7 @@ primitive type을 객체로 포장
 </span>
 
 [https://jsbin.com/nixupu/11/edit?html,css,js,output](https://jsbin.com/nixupu/11/edit?html,css,js,output)
+{: .notice--info}
 
 그럼 이제 Primitive Type만 피해가면 더이상의 문제는 없을까?
 
@@ -64,6 +65,7 @@ primitive type을 객체로 포장
 </span> </h3>
 
 [https://jsbin.com/togame/17/edit?html,css,js,output](https://jsbin.com/togame/17/edit?html,css,js,output)
+{: .notice--info}
 
 <span style="color:{{site.span_emphasis_color}}"> 
 기존 바인딩된 배열을 새로운 배열로 교체하는 경우이다.
@@ -110,6 +112,7 @@ deep copy를 구현하는 방법은 기존 배열을 다 지우고 새로push하
 </span> </h3>
 
 [https://jsbin.com/cinipa/5/edit?html,js,output](https://jsbin.com/cinipa/5/edit?html,js,output)
+{: .notice--info}
 
 <h3> <span style="color:{{site.span_h3_color}}"> 
 예제5) 공유데이터 서비스를 2개의 컨트롤러가 이용하는 예제
@@ -117,3 +120,4 @@ deep copy를 구현하는 방법은 기존 배열을 다 지우고 새로push하
 예: $http로 json 객체 배열을 받은 경우를 등등
 
 [https://jsbin.com/dujibi/6/edit?html,js,output](https://jsbin.com/dujibi/6/edit?html,js,output)
+{: .notice--info}

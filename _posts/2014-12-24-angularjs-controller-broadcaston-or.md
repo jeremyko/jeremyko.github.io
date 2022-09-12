@@ -14,7 +14,8 @@ blogger_orig_url: https://jeremyko.blogspot.com/2014/12/angularjs-controller-bro
 AngularJS sharing data between controllers : $broadcast/$on or service
 </span> </h3>
 
-예를 들어 A, B, C 컨트롤러간에 데이터를 공유해야 하는 경우가 있다라고 가정 해보자.  
+예를 들어 A, B, C 컨트롤러간에 데이터를 공유해야 하는 경우가 있다라고 가정 해보자.
+
 즉, A 컨트롤러가 변경시키는 어떠한 데이터를 다른 컨트롤러들에서 추적해서 화면등에 갱신이 필요한 경우라면 어떤 방법이 좋을까..
 
 이러한 Controller들간의 데이터를 공유하는 방법에 대한 내용을 인터넷을 찾아보면

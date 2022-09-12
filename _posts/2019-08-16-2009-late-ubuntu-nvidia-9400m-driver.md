@@ -55,6 +55,5 @@ ubuntu 18.04 에서 nvidia driver 잘못깔린 경우, 부팅이 안되는 상�
 참고한 사이트 
 </span> </h3>
 
-[https://driz2le.tistory.com/254](https://driz2le.tistory.com/254)
-
+[https://driz2le.tistory.com/254](https://driz2le.tistory.com/254)  
 [http://sarghis.com/blog/1043/](http://sarghis.com/blog/1043/)

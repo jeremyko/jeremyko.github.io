@@ -19,6 +19,7 @@ AngularJS(1.3.6)+ Express + mongojs 이용한 간단한 게시판
 일반적인 형식
 
 [https://github.com/jeremyko/AngularJsBulletinBoard_PlainStyle](https://github.com/jeremyko/AngularJsBulletinBoard_PlainStyle)
+{: .notice--info}
 
 ![blog-image](/assets/img/20141209-simpleAngularjsBB.png)
 
@@ -27,3 +28,4 @@ AngularJS(1.3.6)+ Express + mongojs 이용한 간단한 게시판
 accordion 스타일
 
 [https://github.com/jeremyko/simple_angularjs_bulletin_board](https://github.com/jeremyko/simple_angularjs_bulletin_board)
+{: .notice--info}

@@ -97,7 +97,7 @@ tag_archive_path: '/tags/#'
 #   - vendor/ruby/
 
 # ============================================================================== skin
-skin: '/assets/css/skins/dark.css'
+# skin: '/assets/css/skins/dark.css'
 # ==============================================================================
 #giscus:
 #  repo:                "jeremyko/jeremyko.github.io"
@@ -119,10 +119,13 @@ plugins:
 # header_pages:
 #  - about.md
 
-# ==============================================================================
-span_emphasis_color: '#ff4500'  # orange Red
+# ============================================================================== text colors for dark theme
+# span_emphasis_color: '#ff4500'  # orange Red
+# span_h3_color: '#ffa500'  # orange
+# span_h4_color: '#ff8243' # Mango Tango
 
-span_h3_color: '#ffa500'  # orange
-
-span_h4_color: '#ff8243' # Mango Tango
-# span_h4_color: '#ffbf00' # Fluorescent Orange
+# ============================================================================== text colors for theme 
+# span_emphasis_color: '#0014a8'  # Zaffre
+span_emphasis_color: '#cb410b'  # 
+span_h3_color: '#1560bd'  # Denim
+span_h4_color: '#324ab2' # Violet Blue 

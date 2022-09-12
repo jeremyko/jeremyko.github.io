@@ -10,9 +10,9 @@ tags: [python, numpy, scipy]
 
 문제의 원인을 찾아보니, docker container 를 생성하면서 할당한 cpu 개수와 실제 머신의 전체 CPU 개수 불일치로 인한 문제였다. 이 현상에 대해 정리 해 본다.
 
--   docker container 기반에서 [OpenBLAS](https://github.com/xianyi/OpenBLAS), [MLK](https://en.wikipedia.org/wiki/Math_Kernel_Library) 를 사용하는 numpy, scipy 등의 패키지 내부에서 과도한 thread 생성이 안되게 주의 해야 한다.
+-   <span style="color:{{site.span_h4_color}}">docker container 기반에서 [OpenBLAS](https://github.com/xianyi/OpenBLAS), [MLK](https://en.wikipedia.org/wiki/Math_Kernel_Library) 를 사용하는 numpy, scipy 등의 패키지 내부에서 과도한 thread 생성이 안되게 주의 해야 한다.</span>
 
--   비록 명시적으로 thread 를 사용하지 않았어도, numpy, scipy 내부적으로는 multi thread 가 생성 된다는 것을 알아둘 필요가 있다.
+-   <span style="color:{{site.span_h4_color}}">비록 명시적으로 thread 를 사용하지 않았어도, numpy, scipy 내부적으로는 multi thread 가 생성 된다는 것을 알아둘 필요가 있다.</span>
 
 좀 더 자세히 알아보면,
 
@@ -123,23 +123,15 @@ def get_cpu_count():
 
 개발자라면 당연하게 여기겠지만, 자신의 코드가 동작하는 환경을 먼저 분석하고, 문제점이 이에 해당되는 경우에만 thread 개수 설정을 해야 한다. 임의로 개수 조정하는 것은 오히려 성능을 더 저하 시키는 요인이 될 수도 있다는 것을 유념해 둘 필요가 있다.
 
-<!-- ### 참고 -->
 <h3> <span style="color:{{site.span_h3_color}}"> 참고 </span> </h3>
+{: .notice--accent}
 
-[cgroupfs 참고](https://tech.kakao.com/2020/06/29/cgroup-driver/)
-
-[docker runtime option](https://docs.docker.com/config/containers/resource_constraints/#configure-the-default-cfs-scheduler)
-
-[Completely Fair Scheduler Bandwidth Control](https://www.kernel.org/doc/Documentation/scheduler/sched-bwc.txt)
-
-[cgroups — Linux manual page](https://man7.org/linux/man-pages/man7/cgroups.7.html)
-
-[https://github.com/obspy/obspy/wiki/Notes-on-Parallel-Processing-with-Python-and-ObsPy](https://github.com/obspy/obspy/wiki/Notes-on-Parallel-Processing-with-Python-and-ObsPy)
-
-[https://pipelines.lsst.io/v/foo/modules/lsst.pipe.base/command-line-task-parallel-howto.html](https://pipelines.lsst.io/v/foo/modules/lsst.pipe.base/command-line-task-parallel-howto.html)
-
-[https://stackoverflow.com/questions/16047306/how-is-docker-different-from-a-virtual-machine?rq=1](https://stackoverflow.com/questions/16047306/how-is-docker-different-from-a-virtual-machine?rq=1)
-
-[https://numpy.org/install](https://numpy.org/install)
-
+[cgroupfs 참고](https://tech.kakao.com/2020/06/29/cgroup-driver/)  
+[docker runtime option](https://docs.docker.com/config/containers/resource_constraints/#configure-the-default-cfs-scheduler)  
+[Completely Fair Scheduler Bandwidth Control](https://www.kernel.org/doc/Documentation/scheduler/sched-bwc.txt)  
+[cgroups — Linux manual page](https://man7.org/linux/man-pages/man7/cgroups.7.html)  
+[https://github.com/obspy/obspy/wiki/Notes-on-Parallel-Processing-with-Python-and-ObsPy](https://github.com/obspy/obspy/wiki/Notes-on-Parallel-Processing-with-Python-and-ObsPy)  
+[https://pipelines.lsst.io/v/foo/modules/lsst.pipe.base/command-line-task-parallel-howto.html](https://pipelines.lsst.io/v/foo/modules/lsst.pipe.base/command-line-task-parallel-howto.html)  
+[https://stackoverflow.com/questions/16047306/how-is-docker-different-from-a-virtual-machine?rq=1](https://stackoverflow.com/questions/16047306/how-is-docker-different-from-a-virtual-machine?rq=1)  
+[https://numpy.org/install](https://numpy.org/install)  
 [https://www.slideshare.net/JoongiKim/soscon-2017-backendai](https://www.slideshare.net/JoongiKim/soscon-2017-backendai) 37페이지
