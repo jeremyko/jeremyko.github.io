@@ -10,14 +10,6 @@ blogger_id: tag:blogger.com,1999:blog-7360229670252766698.post-67801794564944061
 blogger_orig_url: https://jeremyko.blogspot.com/2012/08/ruby-on-rails-1.html
 ---
 
-<style>
-    pre {
-       line-height: 130%;
-    }
-</style>
-
-(rails 에 관심있는 새내기에 의한, 새내기를 위한 글 입니다~~).
-
 요즘 취미로 Ruby on Rails 에 대해 공부하고 있는데, 간단한 게시판 예제를 작성 해보자.
 
 이 예제의 소스는 여기서 받을수 있다.
@@ -135,6 +127,7 @@ end
 ```
 
 이처럼, DB구조에 변경이 발생할때마다 migration파일을 먼저 생성해야 한다.
+
 이를 통해 우리는 DB를 점진적으로 변경할수 있게 된다. 아울러 변경 이력도 관리 가능하다.
 
 흥미로운 것은 Rails가 만들어준 이름이다.
@@ -263,7 +256,9 @@ end
 
 컨트롤러가 모델을 사용해서, 데이터를 조회한후, 그 리스트를 돌려주었다.
 
-이제 이 리스트를 화면에 출력하기 위해 뷰를 작성해야 한다. 이 화면이 최초 보여지는 전체 게시물 출력 화면이다.
+이제 이 리스트를 화면에 출력하기 위해 뷰를 작성해야 한다.
+
+이 화면이 최초 보여지는 전체 게시물 출력 화면이다.
 
 `RailsBoard\app\views\board\index.html.erb` 를 다음처럼 수정한다.
 
@@ -361,11 +356,15 @@ end
 
 그리고 http://localhost:3000/ 으로 확인해본다.
 
+![blog-image](/assets/img/20120828-1.jpg)
+
 ### 게시판 기능 구현
 
 ### 글 쓰기 구현
 
-이제 글쓰기 기능을 구현할 차례이다. 새로운 기능들을 추가하기위해서는 다음과 같은 일정한 절차를 반복해주면 된다.
+이제 글쓰기 기능을 구현할 차례이다.
+
+새로운 기능들을 추가하기위해서는 다음과 같은 일정한 절차를 반복해주면 된다.
 
 -   url을 컨트롤러의 action에 mapping
 
@@ -383,6 +382,7 @@ end
 ```
 
 그리고, action을 구현한다.
+
 `\RailsBoard\app\controllers\board_controller.rb` 파일에 `show_write_form action` 을 추가한다.
 
 ```ruby
@@ -517,6 +517,8 @@ DoWriteBoard action에서는 폼이 전달한 인자들을 얻어서, 새로운 
 
 잘 처리되는지 확인하기 위해서 웹페이지에서 글쓰기를 몇번 시도해보자.
 
+![blog-image](/assets/img/20120828-2.jpg)
+
 ### 페이지 처리 구현
 
 여기서, 페이지 처리를 위한 action 을 정의하려 한다.
@@ -573,7 +575,9 @@ class BoardController < ApplicationController
 end
 ```
 
-listSpecificPageWork action 은 페이지를 전달받아서 해당 페이지 게시물만을 목록에 출력한다. Oracle에서는 `rownum`을 이용했고, sqlite 에서는 이를 대체하기 위해 `limit ~ offset ~` 을 사용했다.
+listSpecificPageWork action 은 페이지를 전달받아서 해당 페이지 게시물만을 목록에 출력한다.
+
+Oracle에서는 `rownum`을 이용했고, sqlite 에서는 이를 대체하기 위해 `limit ~ offset ~` 을 사용했다.
 
 이제 뷰를 구현한다.
 
@@ -658,7 +662,9 @@ listSpecificPageWork action 은 페이지를 전달받아서 해당 페이지 �
 </table>
 ```
 
-그런데, 이 뷰의 내용은 이미 작성한 `index.html.erb` 와 동일하다. 그래서 기존 작성된 내용에 대해서 약간 수정을 해보기로 한다. index action은 다음처럼 변경 가능하다.
+그런데, 이 뷰의 내용은 이미 작성한 `index.html.erb` 와 동일하다.
+
+그래서 기존 작성된 내용에 대해서 약간 수정을 해보기로 한다. index action은 다음처럼 변경 가능하다.
 
 ```ruby
 def index
@@ -726,6 +732,7 @@ end
 ```
 
 조회수를 증가하기 위해서 모델의 increment_counter 메서드를 이용했다.
+
 그리고, 내용보기 화면에서 사용할 모델 객체 `@rowData` 를 모델의 find class 메서드를 이용해서 구한다.
 
 그럼 다음은, view를 추가해야한다. `\RailsBoard\app\views\board\` 에 새로운 파일, `viewWork.html.erb` 를 생성하고 내용은 다음처럼 작성해준다.
