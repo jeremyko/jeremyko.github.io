@@ -119,12 +119,12 @@ func main() {
 현재 디렉토리 구조는 다음과 같다.
 
     └── workspace-test
-    ├── my_mod
-    │ ├── go.mod
-    │ └── my_mod.go
-    └── sample
-    ├── go.mod
-    └── sample.go
+        ├── my_mod
+        │ ├── go.mod
+        │ └── my_mod.go
+        └── sample
+            ├── go.mod
+            └── sample.go
 
 이제, my_mod 이 배포되어 공개된 모듈이라면 이 상태에서 바로 sample.go 를 실행하면 되겠지만, 지금은 my_mod 모듈이 아직 공식 repo에 발행(publish) 되기 전 이므로, go 를 사용하여 정식 다운로드를 할수 없다.  
 즉 github.com/jeremyko/my_mod 와 같은 경로를 현재 사용 할 수 없다.
@@ -165,13 +165,13 @@ workspace_test 디렉토리 에서 다음 명령을 실행한다.
 현재 디렉토리 구조는 다음과 같다.
 
     └── workspace-test
-    ├── go.work
-    ├── my_mod
-    │ ├── go.mod
-    │ └── my_mod.go
-    └── sample
-    ├── go.mod
-    └── sample.go
+        ├── go.work
+        ├── my_mod
+        │ ├── go.mod
+        │ └── my_mod.go
+        └── sample
+            ├── go.mod
+            └── sample.go
 
 <!-- #### workspace 에 모듈을 추가 -->
 <h4> <span style="color:{{site.span_h4_color}}">workspace 에 모듈을 추가</span> </h4>
@@ -201,16 +201,16 @@ workspace 모듈의 정의는 go.work 파일로부터의 상대 경로로 모듈
 즉, go.mod 가 있는 모든 모듈은 하위 디렉토리 여부로 판단 하는 게 아니고 모두 개별 추가해 줘야 한다.
 
     └── workspace-test
-    ├── go.work
-    ├── my_mod
-    │ ├── go.mod
-    │ ├── my_mod.go
-    │ └── my_sub_mod
-    │ ├── go.mod
-    │ └── my_sub_mod.go
-    └── sample
-    ├── go.mod
-    └── sample.go
+        ├── go.work
+        ├── my_mod
+        │ ├── go.mod
+        │ ├── my_mod.go
+        │ └── my_sub_mod
+        │   ├── go.mod
+        │   └── my_sub_mod.go
+        └── sample
+            ├── go.mod
+            └── sample.go
 
 만약 위와 같은 구조라면 sample.go 에서 my_sub_mod 를 사용하기 위해서는 별도로 다음을 한번 더 수행해줘야 한다.
 
