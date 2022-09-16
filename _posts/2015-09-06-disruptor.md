@@ -40,7 +40,7 @@ queue를 사용하는 경우엔 c1 과 c2 는 각각 d1, d2 데이터를 전부 
 
 반면 disruptor의 경우는 d1, d2 데이터가 모든 소비자 c1, c2 들에게 각각 모두 전달된다. 즉 c1도 d1, d2데이터를 전달받고, c2 또한 마찬가지이다.
 
-![test](/assets/img/20150906-difference.png)
+![test](/assets/img/20150906-difference.PNG)
 
 <h3> <span style="color:{{site.span_h3_color}}"> 
 2. Disruptor 동작 방식
