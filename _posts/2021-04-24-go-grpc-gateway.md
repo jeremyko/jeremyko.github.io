@@ -139,12 +139,12 @@ import (
 
 type server struct{}
 
-func NewServer() \*server {
+func NewServer() *server {
     return &server{}
 }
 
 func (s *server) SayHello(ctx context.Context, in *helloworldpb.HelloRequest)
-    (\*helloworldpb.HelloReply, error) {
+    (*helloworldpb.HelloReply, error) {
     return &helloworldpb.HelloReply{Message: in.Name + " world"}, nil
 }
 
@@ -190,7 +190,7 @@ HTTP->gRPC mapping 을 추가한다
         rpc SayHello (HelloRequest) returns (HelloReply) {
             option (google.api.http) = {
                 post: "/v1/example/echo"
-                body: "\*"
+                body: "*"
             };
         }
     }
@@ -211,10 +211,10 @@ protoc 를 사용하는 경우에는 googleapis 의존 파일을 다음 폴더 �
     proto
     ├── google
     │ └── api
-    │ ├── annotations.proto
-    │ └── http.proto
+    │   ├── annotations.proto
+    │   └── http.proto
     └── helloworld
-    └── hello_world.proto
+      └── hello_world.proto
 
 my_grpc_module/proto/ 에 google/api 폴더 생성
 mkdir -p google/api
