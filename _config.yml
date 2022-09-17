@@ -119,6 +119,9 @@ plugins:
 # header_pages:
 #  - about.md
 
+# ============================================================================== 
+google_analytics: G-W91H6YRB5W
+
 # ============================================================================== text colors for dark theme
 # span_emphasis_color: '#ff4500'  # orange Red
 # span_h3_color: '#ffa500'  # orange
