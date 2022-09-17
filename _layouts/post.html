@@ -2,6 +2,7 @@
 layout: default
 ---
 
+
 <main id="main" class="main-content" aria-label="Content">
   <article class="h-entry">
     {% include page-image.html %}
@@ -24,6 +25,10 @@ layout: default
       <div class="page-content">
         <div class="e-content">
           {{ content }}
+        </div>
+        
+        <!-- giscus 댓글 기능  -->
+        <div class="'giscus ">
         </div>
 
         {% if page.share %}
