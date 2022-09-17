@@ -222,13 +222,13 @@ func main() {
     │ ├── test_pkg1
     │ │ └── test_pkg.go
     │ └── test_pkg2
-    │ ├── test_pkg2_1st.go
-    │ └── test_pkg2_2nd.go
+    │   ├── test_pkg2_1st.go
+    │   └── test_pkg2_2nd.go
     └── main_mod
-    ├── go.mod
-    ├── main.go
-    └── test_pkg3
-    └── test_pkg3.go
+      ├── go.mod
+      ├── main.go
+      └── test_pkg3
+        └── test_pkg3.go
 
 <h3> <span style="color:{{site.span_h3_color}}">
 여러 모듈을 개발중이며 다른 모듈의 기능을 사용하는 경우
