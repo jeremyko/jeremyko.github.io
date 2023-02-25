@@ -1,0 +1,12 @@
+1) _config.yml 에서 
+    
+    # 아래 remote_theme 은 그대로 두고 theme 만 주석 해제
+    theme: jekyll-theme-so-simple
+    # theme: minima
+
+
+2) 로컬 서버 실행 
+    
+    bundle exec jekyll serve
+
+    http://127.0.0.1:4000
