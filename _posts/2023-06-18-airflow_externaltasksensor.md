@@ -136,7 +136,7 @@ with DAG(
 그렇다면 `dag_a` 는 상관없고, `dag_b` 가 고려할 대상이 된다.
 이 경우에는 2가지 방안이 있겠는데 
 
-- 위 예제와 동일하게 `dag_b`로 execution_date 인자를 넘겨 줄수도 있다. 하지만 이럴경우 'dag_b' 의 `execution_date` 자체가 변경되므로 자신의 고유 처리 로직에 영향을 주게된다. 그래서 이렇게 사용할 경우는 없을 것이다.
+- 위 예제와 동일하게 `dag_b`로 `execution_date` 인자를 넘겨 줄수도 있다. 하지만 이럴경우 `dag_b` 의 `execution_date` 자체가 변경되므로 자신의 고유 처리 로직에 영향을 주게된다. 그래서 이렇게 사용할 경우는 없을 것이다.
 또한 `dag_b` 에서 `dag_a` 가 아닌 다른 `dag_x` 를 감지하는 경우를 가정해본다면 이것은 답이 될수 없다. 
 - 그래서 `ExternalTaskSensor` 인자 중에서 `execution_delta` 나 `execution_date_fn` 중에서 하나를 선택해서 `dag_a` 의 execution_date 를 찾을 수 있게 만들어야 한다. 이 내용은 추후 정리해 보기로 한다. 
 
