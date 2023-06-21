@@ -140,7 +140,7 @@ with DAG(
 - 그래서 `ExternalTaskSensor` 인자 중에서 `execution_delta` 나 `execution_date_fn` 중에서 하나를 선택해서 `dag_a` 의 execution_date 를 찾을 수 있게 만들어야 한다 (이 내용은 추후 정리해 보기로...). 
 
 ## 결론 
-- `ExternalTaskSensor` 가 제대로 동작하기 위해서는 감지할 dag, task 가 어떤 것인지를 구별하게 만들어 줘야 하고 airflow 에서는 이것을 찾을때 id 뿐만 아니라 execution_date 도 같이 참고 하고 있다.
+- `ExternalTaskSensor` 가 제대로 동작하기 위해서는 감지할 dag, task 가 어떤 것인지를 구별하게 만들어 줘야 하고 airflow 에서는 이것을 찾을때 id 뿐만 아니라 execution_date 이 동일한지도 같이 참고 한다.
 - 그래서 `ExternalTaskSensor` 인자 중에서 `execution_delta` 나 `execution_date_fn` 중에서 하나를 선택해서 감지할 dag의 execution_date 를 찾을 수 있게 만들어 줘야 한다.
 
 
