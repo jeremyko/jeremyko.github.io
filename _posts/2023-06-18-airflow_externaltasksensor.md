@@ -12,6 +12,8 @@ tags: [airflow,python]
 예를 들어, `dag_a` 가 `dag_b` 를 호출하고, `dag_b` 는 `dag_a` 가 수행됬는지 확인이 필요해서 다음처럼 코드를 작성했다고 해보자.
 `dag_a` 에서 `TriggerDagRunOperator`, `dag_b` 에서는 `ExternalTaskSensor`를 사용 했다.
 
+## `dag_a`, `dag_b` schedule 이 모두 None , 비 실용적/비 현실적인 예제 
+
 ### dag_a
 
 ```python
@@ -66,9 +68,6 @@ with DAG(
 
 ```
 
-
-
-## `dag_a`, `dag_b` schedule 이 모두 None 인 경우
 
 이제 `dag_a` 를 UI 에서 Trigger Dag 로 실행해 본다. 
 그리고 `dag_a` 의 Task Instance Details 항목에서 execution_date 을 확인한다.
@@ -131,18 +130,18 @@ with DAG(
 
 위에 설명했지만 schedule 이 모두 None 인 경우에만 해당되고, 솔직히 실용적이지 않고, 이럴 경우는 거의 없을 것임.
 
-## `dag_a`, `dag_b` schedule 이 모두 None 이 아닌 경우
+## `dag_a`, `dag_b` schedule 이 모두 None 이 아닌 경우라면 ? 
 
 그렇다면 `dag_a` 는 상관없고, `dag_b` 가 고려할 대상이 된다.
 이 경우에는 2가지 방안이 있겠는데 
 
 - 위 예제와 동일하게 `dag_b`로 `execution_date` 인자를 넘겨 줄수도 있다. 하지만 이럴경우 `dag_b` 의 `execution_date` 자체가 변경되므로 자신의 고유 처리 로직에 영향을 주게된다. 그래서 이렇게 사용할 경우는 없을 것이다.
 또한 `dag_b` 에서 `dag_a` 가 아닌 다른 `dag_x` 를 감지하는 경우를 가정해본다면 이것은 답이 될수 없다. 
-- 그래서 `ExternalTaskSensor` 인자 중에서 `execution_delta` 나 `execution_date_fn` 중에서 하나를 선택해서 `dag_a` 의 execution_date 를 찾을 수 있게 만들어야 한다. 이 내용은 추후 정리해 보기로 한다. 
+- 그래서 `ExternalTaskSensor` 인자 중에서 `execution_delta` 나 `execution_date_fn` 중에서 하나를 선택해서 `dag_a` 의 execution_date 를 찾을 수 있게 만들어야 한다 (이 내용은 추후 정리해 보기로...). 
 
 ## 결론 
-- `ExternalTaskSensor` 가 제대로 동작하기 위해서는 감지할 dag, task 가 어떤 것인지를 구별하게 만들어 주면 된다. 그리고 airflow 에서는 이것을 찾을때 id 뿐만 아니라 execution_date 도 같이 참고 하고 있다.
-- `ExternalTaskSensor` 인자 중에서 `execution_delta` 나 `execution_date_fn` 중에서 하나를 선택해서 `dag_a` 의 execution_date 를 찾을 수 있게 만들어 줘야 한다.
+- `ExternalTaskSensor` 가 제대로 동작하기 위해서는 감지할 dag, task 가 어떤 것인지를 구별하게 만들어 줘야 하고 airflow 에서는 이것을 찾을때 id 뿐만 아니라 execution_date 도 같이 참고 하고 있다.
+- 그래서 `ExternalTaskSensor` 인자 중에서 `execution_delta` 나 `execution_date_fn` 중에서 하나를 선택해서 감지할 dag의 execution_date 를 찾을 수 있게 만들어 줘야 한다.
 
 
 
