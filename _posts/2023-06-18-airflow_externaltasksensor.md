@@ -9,9 +9,9 @@ tags: [airflow,python]
 지금 하고 있는 프로젝트에서 `airflow` `ExternalTaskSensor` 를 사용해서 다른 dag 에서 호출한것을 감지하는 부분이 있다. 
 이것을 사용할 때 몇가지 고려할 사항이 있었는데 한번 정리해 본다.
 
-## TriggerDagRunOperator 사용 시 계속 대기 상태로 빠지는 에러
-`TriggerDagRunOperator` 를 사용할때 더이상 진행이 안되고 hang 발생되는 예 를 하나 만들어 보자. 
-예를 들어, `dag_a` 가 `dag_b` 를 호출하고 다음처럼 코드를 작성했다고 가정해 보자.
+## ExternalTaskSensor 사용 시 계속 대기 상태로 빠지는 에러
+`ExternalTaskSensor` 를 사용할때 더 이상 진행이 안되고 hang 발생되는 예 를 하나 만들어 보자. 
+예를 들어, `dag_a` 가 `dag_b` 를 호출하고 다음처럼 코드를 작성 했다고 가정해 보자.
 둘다 schedule=None 이고, `dag_a` 에서 `TriggerDagRunOperator`, `dag_b` 에서는 `ExternalTaskSensor`를 사용 했다.
 
 
@@ -81,11 +81,11 @@ with DAG(
 
 **그런데 airflow 에서는 `ExternalTaskSensor` 가 사용된 경우에는 `dag_b` 에서 `dag_a` 를 찾을때 execution_date 가 둘다 일치하는 지 확인한다.**
 
-이유는 `dag_a`가 여러 번 실행됬을 수도 있기 때문이다. `dag_b` 입장에서는 언제 실행된 `dag_a`를 감지해야 할지 기준이 필요할것이다.
+이유는 `dag_a`가 여러 번 실행 됬을 수 도 있기 때문이다. `dag_b` 입장에서는 언제 실행된 `dag_a`를 감지해야 할지 기준이 필요할것이다.
 그래서 결국 `dag_b` 는 계속 `dag_a` 를 계속 기다리게 되고, `timeout=3600` 이 지나면 그제서야 에러로 처리가 될것이다.
 
-## 계속 대기 상태로 빠지는 에러 해결하기
-이를 해결하기 위한 방법은 `dag_a` 에서 `execution_date` 인자를 추가하는 것이다.
+## 이 에러를 해결 하기
+이를 해결하기 위한 방법은 `dag_a` 에서 `TriggerDagRunOperator`의 `execution_date` 인자를 추가하는 것이다.
 명시적으로 `dag_a` 의 execution_date 를 `dag_b` 로 전달해서 둘다 동일한 `execution_date` 를 갖도록 하면 된다.
 
 
@@ -113,8 +113,8 @@ with DAG(
 
 airflow 에서 legacy 용어 혼란이 있는데, `execution_date` 는 현재 버전에서는 `logical_date` 이다. 
 둘다 같은 의미이다. 
-그냥 `execution_date`는 의미를 굳이 알 필요도 없다 (오히려 혼란이 가중되므로). 
-그냥 `execution_date` =  `logical_date` 라고 생각하면 될듯하다. 
+`execution_date`는 의미를 굳이 알 필요도 없다 (오히려 혼란이 가중되므로). 
+그냥 `execution_date` 는 `logical_date` 라고 생각하면 이해가 쉽다.
 
 airflow 에서 사용되는 시간 개념이 좀 혼란스러운데, 다음의 관계가 성립된다.
 
@@ -129,10 +129,10 @@ airflow 에서 사용되는 시간 개념이 좀 혼란스러운데, 다음의 �
 ## 참고할 것
 
 위 예제는 단지 설명을 위해 억지로 만든 예제이다. 
-이런식으로 사용할 경우는 없을것이다. 
-**`execution_date` 를 `dag_b` 로 전달하는 방법은 일반적인 해결방안이 아니다.**
+이런식으로 사용할 경우는 없을 것이다. 
+**`execution_date` 를 `dag_b` 로 전달하는 방법은 일반적인 해결 방안이 아니다.**
 
-다시 생각해보면, `dag_b` 는 스스로의 schedule이 없고, `dag_a` 가 호출해 줘야만 실행이 되고 있다.
+다시 생각 해보면, `dag_b` 는 스스로의 schedule이 없고, `dag_a` 가 호출 해줘야 만 실행이 되고 있다.
 그렇다면 `dag_a`가 `dag_b`를 호출하고 `dag_b`가 `dag_a` 를 다시 감지할 필요가 있을까 ? 
 이런 경우라면 굳이 `ExternalTaskSensor`를 사용할 필요가 없을 것이다.
 
@@ -149,10 +149,8 @@ airflow 에서 사용되는 시간 개념이 좀 혼란스러운데, 다음의 �
 ## 그렇다면 해결 방법은 ?  
 
 `ExternalTaskSensor` 인자 중에서 `execution_delta` 나 `execution_date_fn` 중에서 하나를 선택해서 감지할 dag 의 execution_date 를 찾을 수 있게 만들어야 한다  
-
-     
-    
-    
+       
+   
 
 ## 결론 
 - `ExternalTaskSensor` 가 제대로 동작하기 위해서는 감지할 dag, task 가 어떤 것인지를 구별하게 만들어 줘야 하고 airflow 에서는 이것을 찾을때 id 뿐만 아니라 execution_date 이 동일한지도 같이 참고 한다.
