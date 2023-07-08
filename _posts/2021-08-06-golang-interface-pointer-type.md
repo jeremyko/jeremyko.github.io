@@ -37,7 +37,7 @@ func testFunc(value interface{}) {
 func main() {
     var testVar1 string
     var testVar2 []string
-    var testVar3 []\*string
+    var testVar3 []*string
 
     testVar2 = append(testVar2,"A")
     testVar2 = append(testVar2,"B")
