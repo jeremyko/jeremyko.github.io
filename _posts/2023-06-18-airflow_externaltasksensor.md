@@ -140,9 +140,9 @@ airflow 에서 사용되는 시간 개념이 좀 혼란스러운데, 다음의 �
 
 
 
-## 그렇다면 해결 방법은 ?  
+## `ExternalTaskSensor` 를 제대로 사용하려면  
 
-`ExternalTaskSensor` 인자 중에서 `execution_delta` 나 `execution_date_fn` 중에서 하나를 선택해서 감지할 dag 의 execution_date 를 찾을 수 있게 만들어야 한다  
+`ExternalTaskSensor` 인자 중에서 `execution_delta` 나 `execution_date_fn` 중에서 하나를 선택해서 감지할 dag 의 execution_date 를 특정해서 찾을 수 있게 만들어야 한다.
        
    
 
