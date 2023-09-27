@@ -134,13 +134,7 @@ airflow 에서 사용되는 시간 개념이 좀 혼란스러운데, 다음의 �
 
 다시 생각 해보면, `dag_b` 는 스스로의 schedule이 없고, `dag_a` 가 호출 해줘야 만 실행이 되고 있다.
 그렇다면 `dag_a`가 `dag_b`를 호출하고 `dag_b`가 `dag_a` 를 다시 감지할 필요가 있을까 ? 
-이런 경우라면 굳이 `ExternalTaskSensor`를 사용할 필요가 없을 것이다.
-
-더군다나 `execution_date` 를 `dag_b` 로 전달하는 경우엔 `dag_b` 의 `execution_date` 자체가 달라지게 된다 
-(해당 dag 의 고유처리 로직을 변경하는 것이 된다).  
-그리고 `dag_b` 에서 `dag_a` 가 아닌 다른 `dag_x` 를 감지하는 경우도 있을수 있다.
-         
-그래서 `ExternalTaskSensor`가 정말 필요한 경우는 `dag_b` 의 schedule 이 존재해서, 스케쥴러에 의해 실행 되는 시점에 (`dag_a` 에 의해서가 아닌) `dag_a` 혹은 다른 dag 가 
+이런 경우라면 굳이 `ExternalTaskSensor`를 사용할 필요가 없을 것이고, 정말 필요한 경우는 `dag_b` 의 schedule 이 존재해서, 스케쥴러에 의해 실행 되는 시점에 (`dag_a` 에 의해서가 아닌) `dag_a` 혹은 다른 dag 가 
 수행 됬는지를 감지해야 하는 경우일 것이다.
 
 
