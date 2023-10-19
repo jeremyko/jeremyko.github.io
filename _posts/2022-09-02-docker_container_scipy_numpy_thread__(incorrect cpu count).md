@@ -135,3 +135,8 @@ def get_cpu_count():
 [https://stackoverflow.com/questions/16047306/how-is-docker-different-from-a-virtual-machine?rq=1](https://stackoverflow.com/questions/16047306/how-is-docker-different-from-a-virtual-machine?rq=1)  
 [https://numpy.org/install](https://numpy.org/install)  
 [https://www.slideshare.net/JoongiKim/soscon-2017-backendai](https://www.slideshare.net/JoongiKim/soscon-2017-backendai) 37페이지
+
+### UPDATE
+
+python3.13부터 설정으로 cpu개수를 제한할수 있다고 한다. [https://docs.python.org/3.13/whatsnew/3.13.html#os](https://docs.python.org/3.13/whatsnew/3.13.html#os)
+
