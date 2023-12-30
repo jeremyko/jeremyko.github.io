@@ -58,8 +58,8 @@ footer_links:
 # --> Liquid Exception: Could not locate the included file 'page-image.html' 
 # --> 에러발생 원인
 # 아래 remote_theme 은 그대로 두고 theme 만 주석풀고 local test 하면 된다
-# theme: jekyll-theme-so-simple
-# theme: minima
+# bundle exec jekyll serve 실행
+#theme: jekyll-theme-so-simple
 #
 # !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 remote_theme: 'mmistakes/so-simple-theme@3.2.0'
