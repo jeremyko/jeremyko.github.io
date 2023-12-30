@@ -34,7 +34,6 @@ jupyterlab-vim을 설치하고
     Enable `Esc` and `Ctrl-[` leaving vim Normal mode to Jupyter Command mode 
 
 
-그냥 jupyter notebook 을 사용하는 경우라면 어떤 방법이 있는지는 확인 하지 않았음.
 
 
 ### 참고
