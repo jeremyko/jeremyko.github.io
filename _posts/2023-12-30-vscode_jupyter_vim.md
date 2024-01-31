@@ -3,7 +3,7 @@ layout: post
 title: 'vscode, jupyterlab 에서 vim 사용시 esc keymap 문제 해결'
 date: 2023-12-30 12:01:01 +0900
 # categories: python # 별도 폴더로 관리된다 !!!
-tags: [jupyter,vim]
+tags: [jupyter,vim,python]
 ---
 
 
