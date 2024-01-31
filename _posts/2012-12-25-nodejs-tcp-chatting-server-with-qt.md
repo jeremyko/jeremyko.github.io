@@ -7,9 +7,7 @@ tags:
     - QT
     - chat server
     - node.js
-modified_time: '2022-03-26T21:02:34.350+09:00'
-blogger_id: tag:blogger.com,1999:blog-7360229670252766698.post-3561413527684890061
-blogger_orig_url: https://jeremyko.blogspot.com/2012/12/nodejs-tcp-chatting-server-with-qt.html
+blogger_orig_url: https://jeremyko.github.io/2012/12/25/nodejs-tcp-chatting-server-with-qt.html
 ---
 
 <h3> <span style="color:{{site.span_h3_color}}"> 
