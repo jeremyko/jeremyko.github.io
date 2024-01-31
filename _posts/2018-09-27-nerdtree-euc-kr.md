@@ -15,7 +15,7 @@ blogger_orig_url: https://jeremyko.blogspot.com/2018/09/nerdtree-euc-kr.html
 nerdtree euc-kr 환경에서 utf8 환경인 것처럼 사용하기 위한 꼼수
 </span> </h3>
 
-항상 vim + nerdtree 를 조합해서 작업하고 있고 nerdtree없이 작업하는것은 매우 끔찍한 시간이 될거 같다. 그런데 최근 새로 일하게 된 곳의 서버는 euc-kr 로 설정이 된 상태이다 (LC_CTYPE=ko_KR.eucKR).  
+항상 vim + nerdtree 를 조합해서 작업하고 있고 nerdtree없이 작업하는것은 매우 끔찍한 시간이 될거 같다. 그런데 최근 새로 일하게 된 곳의 서버는 euc-kr 로 설정이 된 상태이다 (LC_CTYPE=ko_KR.eucKR). 그리고 계정은 1개뿐이라서, 개발자 별 로 설정을 달리 할수도 없는 상황이다.  
 <span style="color:{{site.span_emphasis_color}}"> 이 환경에서는 nerdtree 플러그인이 제대로 동작하지 않는다 (utf8 에서 정상동작)</span>
 
 <h3> <span style="color:{{site.span_h3_color}}"> 
