@@ -126,8 +126,7 @@ def get_cpu_count():
 <h3> <span style="color:{{site.span_h3_color}}"> 참고 </span> </h3>
 
 [https://github.com/OpenMathLib/OpenBLAS/wiki/Faq#how-can-i-use-openblas-in-multi-threaded-applications](https://github.com/OpenMathLib/OpenBLAS/wiki/Faq#how-can-i-use-openblas-in-multi-threaded-applications)  
-[https://researchcomputing.princeton.edu/faq/how-to-use-openmpi-with-o](https://researchcomputing.princeton.edu/faq/how-to-use-openmpi-with-o)  
-[cgroupfs 참고](https://tech.kakao.com/2020/06/29/cgroup-driver/)  
+[https://researchcomputing.princeton.edu/faq/how-to-use-openmpi-with-o](https://researchcomputing.princeton.edu/faq/how-to-use-openmpi-with-o)   
 [docker runtime option](https://docs.docker.com/config/containers/resource_constraints/#configure-the-default-cfs-scheduler)  
 [Completely Fair Scheduler Bandwidth Control](https://www.kernel.org/doc/Documentation/scheduler/sched-bwc.txt)  
 [cgroups — Linux manual page](https://man7.org/linux/man-pages/man7/cgroups.7.html)  
