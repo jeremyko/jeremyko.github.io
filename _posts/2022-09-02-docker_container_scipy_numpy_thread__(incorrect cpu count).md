@@ -106,7 +106,7 @@ def get_cpu_count():
 <!-- ### 작성한 코드가 이미 thread 를 사용 하는지 여부 -->
 <h3> <span style="color:{{site.span_h3_color}}"> 작성한 코드가 이미 멀티 thread 로 동작되는지 여부 </span> </h3>
 
-한 가지 더 고려해 봐야 할 것이 있는데, 작성한 코드가 이미 multi thread를 사용하고 있는 경우이다. 이 경우엔 OpenBLAS, MLK 이 만드는 thread와 충돌이 발생되어 deadlocks 등의 문제가 발생될 수 있다고 한다 (왜 이런식으로 동작되는지는 파악을 못했다. 다만 문제가 발생한다는 글들을 많이 검색할수 있었으므로 이에 따르기로 한다).
+한 가지 더 고려해 봐야 할 것이 있는데, 작성한 코드가 이미 multi thread를 사용하고 있는 경우이다. 이 경우엔 OpenBLAS, MLK 이 만드는 thread와 충돌이 발생되어 문제가 발생될 수 있다고 한다.
 
 이를 방지하기 위해서는 OpenBLAS, MLK 의 thread 개수를 1개로, 오히려 낮춰야 한다.
 
