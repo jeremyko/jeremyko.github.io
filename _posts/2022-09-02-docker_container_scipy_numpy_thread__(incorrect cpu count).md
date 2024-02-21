@@ -124,9 +124,9 @@ def get_cpu_count():
 개발자라면 당연하게 여기겠지만, 자신의 코드가 동작하는 환경을 먼저 분석하고, 문제점이 이에 해당되는 경우에만 thread 개수 설정을 해야 한다. 임의로 개수 조정하는 것은 오히려 성능을 더 저하 시키는 요인이 될 수도 있다는 것을 유념해 둘 필요가 있다.
 
 <h3> <span style="color:{{site.span_h3_color}}"> 참고 </span> </h3>
-{: .notice--accent}
 
 [https://github.com/OpenMathLib/OpenBLAS/wiki/Faq#how-can-i-use-openblas-in-multi-threaded-applications](https://github.com/OpenMathLib/OpenBLAS/wiki/Faq#how-can-i-use-openblas-in-multi-threaded-applications)  
+[https://researchcomputing.princeton.edu/faq/how-to-use-openmpi-with-o](https://researchcomputing.princeton.edu/faq/how-to-use-openmpi-with-o)  
 [cgroupfs 참고](https://tech.kakao.com/2020/06/29/cgroup-driver/)  
 [docker runtime option](https://docs.docker.com/config/containers/resource_constraints/#configure-the-default-cfs-scheduler)  
 [Completely Fair Scheduler Bandwidth Control](https://www.kernel.org/doc/Documentation/scheduler/sched-bwc.txt)  
