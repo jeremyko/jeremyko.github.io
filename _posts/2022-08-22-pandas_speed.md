@@ -63,11 +63,11 @@ df_small 의 모든 row 마다 df_big 의 모든 row 간 거리(squared euclidea
 
 ```python
 for _, small_row in df_small.iterrows():
-        list_distance = []
-        for _, big_row in df_big.iterrows():
-            distance = (small_row["x_val"] - big_row["X"]) ** 2 + (small_row["y_val"] - big_row["Y"]) ** 2
-            list_distance.append(distance)
-        #... 상동 ...
+    list_distance = []
+    for _, big_row in df_big.iterrows():
+        distance = (small_row["x_val"] - big_row["X"]) ** 2 + (small_row["y_val"] - big_row["Y"]) ** 2
+        list_distance.append(distance)
+    #... 상동 ...
 ```
 
 결과는 8초 정도로, 오히려 더 느려졌다. 인터넷 검색해보면 for 보다는 좀 빠르게 나온다고
@@ -82,12 +82,12 @@ for _, small_row in df_small.iterrows():
 
 ```python
 for index_small in df_small.index:
-        list_distance = []
-        for index_big in df_big.index:
-            distance = (df_small.at[index_small, "x_val"] - df_big.at[index_big, "X"]) ** 2 + (
-                df_small.at[index_small, "y_val"] - df_big.at[index_big, "Y"]
-            ) ** 2
-            #... 상동 ...
+    list_distance = []
+    for index_big in df_big.index:
+        distance = (df_small.at[index_small, "x_val"] - df_big.at[index_big, "X"]) ** 2 + (
+            df_small.at[index_small, "y_val"] - df_big.at[index_big, "Y"]
+        ) ** 2
+        #... 상동 ...
 ```
 
 결과는 3초 정도로 많이 빨라졌다.
@@ -99,13 +99,13 @@ for index_small in df_small.index:
 
 ```python
 for index_small in df_small.index:
-        list_distance = (df_small.at[index_small, "x_val"] - df_big["X"]) ** 2 + (
-            df_small.at[index_small, "y_val"] - df_big["Y"]
-        ) ** 2
+    list_distance = (df_small.at[index_small, "x_val"] - df_big["X"]) ** 2 + (
+        df_small.at[index_small, "y_val"] - df_big["Y"]
+    ) ** 2
 
-        if len(list_distance) > 0:
-            min_index = list_distance.argmin()
-            loop_result.append(min_index)
+    if len(list_distance) > 0:
+        min_index = list_distance.argmin()
+        loop_result.append(min_index)
 ```
 
 df_big 에 대해서 개별 row 접근이 아닌 벡터 연산 처리로 수정을 했다.
@@ -120,10 +120,10 @@ df_big 에 대해서 개별 row 접근이 아닌 벡터 연산 처리로 수정�
 
 ```python
 for index_small in df_small.index:
-        list_distance = (df_small.at[index_small, "x_val"] - df_big["X"].to_numpy()) ** 2 + (
-            df_small.at[index_small, "y_val"] - df_big["Y"].to_numpy()
-        ) ** 2
-        #... 상동 ...
+    list_distance = (df_small.at[index_small, "x_val"] - df_big["X"].to_numpy()) ** 2 + (
+        df_small.at[index_small, "y_val"] - df_big["Y"].to_numpy()
+    ) ** 2
+    #... 상동 ...
 ```
 
 0.03 초에서 0.00502 초로 6배 정도 더 빨라졌다.
