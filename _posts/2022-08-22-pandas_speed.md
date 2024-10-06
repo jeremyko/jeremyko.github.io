@@ -1,6 +1,6 @@
 ---
 layout: post
-title: '(pthon) pandas 처리 속도 개선에 대하여'
+title: '(python) pandas 처리 속도 개선에 대하여'
 date: 2022-08-22 21:00:00 +0900
 # categories: python # 별도 폴더가 생긴다 !!!
 tags: [python, numpy, pandas]
