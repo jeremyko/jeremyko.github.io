@@ -11,7 +11,7 @@ Next.js 란 것으로 기본적인 게시판을 만드는 것에 도전해 보�
 
 새로운 분야를 공부하는 가장 좋은 방법은 뭔가를 만들면서 계속 씨름 해 보는것이라고 생각한다.  
 난 본업이 웹 개발자는 아니지만 최근 웹 개발에 관심이 생겨서 Next.js v15 app router + Auth.js + tailwind + Supabase 를 이용한 간단한 게시판을 만들어 봤다.
-아주 기본적인 기능과 디자인만 구현했지만, 이번에 즐겁게 개발하면서 새로운 것을 배웠다는 것에 나만의 의미를 두려한다.
+
 
 - 데모 사이트  
 [https://nextjs-simpleboard.vercel.app](https://nextjs-simpleboard.vercel.app){:target="_blank"}
@@ -21,7 +21,7 @@ Next.js 란 것으로 기본적인 게시판을 만드는 것에 도전해 보�
 
 ### 사용된 패키지들
 
-현 시점에서 최신 버전들을 사용했다.
+개발하는 시점에서 최신 버전들을 사용했다.
 
     next:15.4.3
     next-auth:5.0.0-beta.29
