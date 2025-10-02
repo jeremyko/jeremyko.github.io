@@ -33,6 +33,8 @@ next.js server action 과 react server component 를 사용해서 다음을 구�
 
 - social login
 - 댓글 및 대댓글 기능
+- quill editor 사용
+- 이미지,동영상 저장시 blob url 활용
 - pagination
 - 검색
 - 반응형 디자인
